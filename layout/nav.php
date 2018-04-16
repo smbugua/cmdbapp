@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+include('../includes/auth.php');
+$user=$_SESSION['user'];
+?>
 <head>
     <meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -214,7 +216,7 @@
 						<a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="../img/user1.png" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
 						<ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
 							<li>
-								<a href="../users/profile.php"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
+								<a href="../users/profile.php"><i class="zmdi zmdi-account"></i><span><?php echo $user?></span></a>
 							</li>
 						
 							<li>

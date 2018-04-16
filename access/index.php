@@ -63,16 +63,16 @@
 											<h6 class="text-center nonecase-font txt-grey">Enter your details below</h6>
 										</div>	
 										<div class="form-wrap">
-											<form action="#">
+											<form action="../controllers/usercontrolclass.php?action=signin" method="post">
 												<div class="form-group">
 													<label class="control-label mb-10" for="exampleInputEmail_2">Email address</label>
-													<input type="email" class="form-control" required="" id="exampleInputEmail_2" placeholder="Enter email">
+													<input type="email" name="email" class="form-control" required="" id="exampleInputEmail_2" placeholder="Enter email">
 												</div>
 												<div class="form-group">
-													<label class="pull-left control-label mb-10" for="exampleInputpwd_2">Password</label>
+													<label class="pull-left control-label mb-10" for="exampleInputpwd_2" >Password</label>
 													<a class="capitalize-font txt-primary block mb-10 pull-right font-12" href="resetpassword.php">forgot password ?</a>
 													<div class="clearfix"></div>
-													<input type="password" class="form-control" required="" id="exampleInputpwd_2" placeholder="Enter pwd">
+													<input type="password" class="form-control" required="" name="password" id="exampleInputpwd_2" placeholder="Enter pwd">
 												</div>
 												
 												<div class="form-group">
