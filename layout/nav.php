@@ -22,6 +22,7 @@ include('../includes/auth.php');
 	<link href="../dist/css/pe-icon-7-stoke.css" rel="stylesheet" type="text/css">
 	<link href="../dist/css/pe-icon-7-styles.css" rel="stylesheet" type="text/css">
 	
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.datatables.net/rss.xml">
 	<!-- Data table CSS -->
 	<link href="../vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
 	
