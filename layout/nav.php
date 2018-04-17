@@ -1,6 +1,6 @@
 <?php 
 include('../includes/auth.php');
-$user=$_SESSION['user'];
+//$user=$_SESSION['user'];
 ?>
 <head>
     <meta charset="UTF-8" />
