@@ -1,4 +1,4 @@
 <?php
 require_once('includes/auth.php');
-$rows=processquery("select * from users");
-echo $rows['username'];
+$rows=processquery("select * from markets");
+echo $rows['market'];

@@ -29,38 +29,32 @@ include('../layout/nav.php');
 					<div class="row">
 						<div class="col-md-6">
 							<div class="panel panel-default card-view">
-								<div class="panel-heading">
-									<div class="pull-left">
-										<h6 class="panel-title txt-dark">Market Details</h6>
-									</div>
-									<div class="clearfix"></div>
-								</div>
 								<div class="panel-wrapper collapse in">
 									<div class="panel-body">
 										<div class="row">
 											<div class="col-sm-12 col-xs-12">
 												<div class="form-wrap">
-													<form>
+													<form action="../controllers/marketcontrolclass.php?action=addmarket" method="post">
 														<div class="form-group">
-															<label class="control-label mb-10" for="exampleInputuname_1">Market Name</label>
+															<label class="control-label mb-10"  for="exampleInputuname_1">Market Name</label>
 															<div class="input-group">
 																<div class="input-group-addon"><i class="icon-user"></i></div>
-																<input type="text" class="form-control" id="exampleInputuname_1" placeholder="Username">
+																<input type="text" class="form-control" id="exampleInputuname_1" name="marketname" placeholder="Market Name">
 															</div>
 														</div>
 															<div class="form-group">
-															<label class="control-label mb-10" for="exampleInputuname_1">Market Abbreviation</label>
+															<label class="control-label mb-10"  for="exampleInputuname_1">Market Abbreviation</label>
 															<div class="input-group">
 																<div class="input-group-addon"><i class="icon-user"></i></div>
-																<input type="text" class="form-control" id="exampleInputuname_1" placeholder="Username">
+																<input type="text" class="form-control" name="marketabbreviation" id="exampleInputuname_1" placeholder="Market Abbreviation">
 															</div>
 														</div>
 														
 														
 														
 												
-														<button type="submit" class="btn btn-success mr-10">Submit</button>
-														<button type="submit" class="btn btn-default">Cancel</button>
+														<button type="submit" class="btn btn-success mr-10" name="addmarket">Add</button>
+														<button type="submit" class="btn btn-default" name="cancel">Cancel</button>
 													</form>
 												</div>
 											</div>
