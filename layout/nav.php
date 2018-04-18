@@ -1,6 +1,6 @@
 <?php 
 include('../includes/auth.php');
-//$user=$_SESSION['user'];
+$user=$_SESSION['user'];
 ?>
 <head>
     <meta charset="UTF-8" />
@@ -393,4 +393,3 @@ include('../includes/auth.php');
 	<!-- Init JavaScript -->
 	<script src="../dist/js/init.js"></script>
 	<script src="../dist/js/dashboard-data.js"></script>
-</body>
