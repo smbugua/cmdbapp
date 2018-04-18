@@ -56,4 +56,12 @@ function longdate($timestamp)
 {
 return date("l F jS Y", $timestamp);
 }
+function redirect($url) {
+    ob_start();
+    header('Location: '.$url);
+    ob_end_flush();
+    die();
+}
+
+
 ?>

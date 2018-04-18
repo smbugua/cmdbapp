@@ -1,6 +1,13 @@
 <?php 
-include('../includes/auth.php');
-$user=$_SESSION['user'];
+require_once('../includes/dash_functions.php');
+session_start();
+if(isset($_SESSION['loggedin'])){
+	if(($_SESSION['loggedin'])==true){
+			$_GLOBALS['user']=$_SESSION['user'];
+			$user=$_GLOBALS['user'];
+			$year=date('Y');
+echo <<<Headerfunction
+
 ?>
 <head>
     <meta charset="UTF-8" />
@@ -25,6 +32,11 @@ $user=$_SESSION['user'];
     <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.datatables.net/rss.xml">
 	<!-- Data table CSS -->
 	<link href="../vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+	<!-- switchery CSS -->
+	<link href="../vendors/bower_components/switchery/dist/switchery.min.css" rel="stylesheet" type="text/css"/>
+	
+	<!-- vector map CSS -->
+	<link href="../vendors/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" type="text/css"/>
 	
 	<!-- Toast CSS -->
 	<link href="../vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet" type="text/css">
@@ -217,7 +229,7 @@ $user=$_SESSION['user'];
 						<a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="../img/user1.png" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
 						<ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
 							<li>
-								<a href="../users/profile.php"><i class="zmdi zmdi-account"></i><span><?php echo $user?></span></a>
+								<a href="../users/profile.php"><i class="zmdi zmdi-account"></i><span>$user</span></a>
 							</li>
 						
 							<li>
@@ -354,18 +366,37 @@ $user=$_SESSION['user'];
 
 
 
-
-    <!-- jQuery -->
-    <script src="../vendors/bower_components/jquery/dist/jquery.min.js"></script>
+ <script src="../vendors/bower_components/jquery/dist/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     
+	<!-- Vector Maps JavaScript -->
+    <script src="../vendors/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="../vendors/vectormap/jquery-jvectormap-world-mill-en.js"></script>
+	<script src="../dist/js/vectormap-data.js"></script>
+	
 	<!-- Data table JavaScript -->
 	<script src="../vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
 	
+	<!-- Flot Charts JavaScript -->
+	<script src="../vendors/bower_components/Flot/excanvas.min.js"></script>
+	<script src="../vendors/bower_components/Flot/jquery.flot.js"></script>
+	<script src="../vendors/bower_components/Flot/jquery.flot.pie.js"></script>
+	<script src="../vendors/bower_components/Flot/jquery.flot.resize.js"></script>
+	<script src="../vendors/bower_components/Flot/jquery.flot.time.js"></script>
+	<script src="../vendors/bower_components/Flot/jquery.flot.stack.js"></script>
+	<script src="../vendors/bower_components/Flot/jquery.flot.crosshair.js"></script>
+	<script src="../vendors/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+	<script src="../dist/js/flot-data.js"></script>
+	
 	<!-- Slimscroll JavaScript -->
 	<script src="../dist/js/jquery.slimscroll.js"></script>
+	
+	<!-- simpleWeather JavaScript -->
+	<script src="../vendors/bower_components/moment/min/moment.min.js"></script>
+	<script src="../vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js"></script>
+	<script src="../dist/js/simpleweather-data.js"></script>
 	
 	<!-- Progressbar Animation JavaScript -->
 	<script src="../vendors/bower_components/waypoints/lib/jquery.waypoints.min.js"></script>
@@ -380,16 +411,28 @@ $user=$_SESSION['user'];
 	<!-- Owl JavaScript -->
 	<script src="../vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
 	
-	<!-- Switchery JavaScript -->
-	<script src="../vendors/bower_components/switchery/dist/switchery.min.js"></script>
-	
 	<!-- EChartJS JavaScript -->
 	<script src="../vendors/bower_components/echarts/dist/echarts-en.min.js"></script>
 	<script src="../vendors/echarts-liquidfill.min.js"></script>
 	
 	<!-- Toast JavaScript -->
 	<script src="../vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+		
+	<!-- Switchery JavaScript -->
+	<script src="../vendors/bower_components/switchery/dist/switchery.min.js"></script>
+	
+	<!-- Bootstrap Select JavaScript -->
+	<script src="../vendors/bower_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 	
 	<!-- Init JavaScript -->
 	<script src="../dist/js/init.js"></script>
-	<script src="../dist/js/dashboard-data.js"></script>
+	<script src="../dist/js/dashboard2-data.js"></script>
+	
+	
+<?php
+Headerfunction;
+	}elseif($_SESSION['loggedin']==false) {
+	header("Location: ../access/logout.php");
+}
+}
+

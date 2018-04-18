@@ -11,13 +11,15 @@ require_once('../includes/auth.php');
 	}elseif ($_GET['action']=="signin") {
 		$email=$_POST['email'];
 		$password=md5($_POST['password']);
-		$userq=processquery("SELECT email,username,id,hashpassword from users where email='$email' and hashpassword='$password' ");
-		if (processquery("SELECT email,username,id,hashpassword from users where email='$email' and hashpassword='$password' ")) {
+		$u=querydb("SELECT email,username,id,hashpassword from users where email='$email' and hashpassword='$password' ");
+		$userq=mysqli_fetch_array($u,MYSQLI_ASSOC);
+		$no=numquery("SELECT email,username,id,hashpassword from users where email='$email' and hashpassword='$password' ");
+		if ($no>=1) {
 		session_start();
 		$_SESSION['user']=$userq['username'];
-		$_SESSION['loggedin']=TRUE;
+		$_SESSION['loggedin']="TRUE";
 		header("Location: ../admin/index.php");			
-		}elseif (!processquery("SELECT email,username,id,hashpassword from users where email='$email' and hashpassword='$password' ")) {
+		}elseif ($no<1) {
 		//session_start();
 			$_SESSION['loggedin']=FALSE;
 			header("Location: ../access/index.php");
