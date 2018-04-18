@@ -286,20 +286,22 @@ include('../layout/nav.php');
 												</thead>
 												<tbody>
 
-												<?php  ?>
+												<?php  
+												$r=querydb("SELECT id,market,mkt FROM markets order by market asc");
+												while($row=mysqli_fetch_assoc($r)){
+												?>
 													<tr>
-														<td><span class="txt-dark weight-500">Facebook</span></td>
-														<td>Beavis</td>
-														<td><span class="txt-success"><i class="zmdi zmdi-caret-up mr-10 font-20"></i><span>2.43%</span></span></td>
+														<td><span class="txt-dark weight-500"><?php echo $row['market']?></span></td>
+														<td><?php echo $row['mkt']?></td>
+														<td><span class="txt-success"><i class="zmdi zmdi-caret-up mr-10 font-20"></i><span><?php echo get_envs()?></span></span></td>
 														<td>
-															<span class="txt-dark weight-500">$1478</span>
+															<span class="txt-dark weight-500"><?php echo get_nodes()?></span>
 														</td>
 														<td>
 															<span class="label label-primary">active</span>
 														</td>
 													</tr>
-													
-													</tr>
+													<?php }?>
 												</tbody>
 											</table>
 										</div>

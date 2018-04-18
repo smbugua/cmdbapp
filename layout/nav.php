@@ -41,6 +41,24 @@ echo <<<Headerfunction
 	<!-- Toast CSS -->
 	<link href="../vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet" type="text/css">
 		
+		<!-- select2 CSS -->
+		<link href="../vendors/bower_components/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css"/>
+		
+		<!-- switchery CSS -->
+		<link href="../vendors/bower_components/switchery/dist/switchery.min.css" rel="stylesheet" type="text/css"/>
+		
+		<!-- bootstrap-select CSS -->
+		<link href="../vendors/bower_components/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" type="text/css"/>
+		
+		<!-- bootstrap-tagsinput CSS -->
+		<link href="../vendors/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" type="text/css"/>
+		
+		<!-- bootstrap-touchspin CSS -->
+		<link href="../vendors/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" type="text/css"/>
+		
+		<!-- multi-select CSS -->
+		<link href="../vendors/bower_components/multiselect/css/multi-select.css" rel="stylesheet" type="text/css"/>
+		
 	<!-- Custom CSS -->
 	<link href="../dist/css/style.css" rel="stylesheet" type="text/css">
 </head>
