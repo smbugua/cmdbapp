@@ -331,7 +331,19 @@ echo <<<Headerfunction
 					<i class="zmdi zmdi-more"></i>
 				</li>
 				<li>
-					<a href="javascript:void(0);" data-toggle="collapse" data-target="#ui_dr"><div class="pull-left"><i class="zmdi zmdi-smartphone-setup mr-20"></i><span class="right-nav-text">Version Control</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+						<a class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#form_dr"><div class="pull-left"><i class="zmdi zmdi-edit mr-20"></i><span class="right-nav-text">Configurations</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+						<ul id="form_dr" class="collapse collapse-level-1 two-col-list">
+							<li>
+								<a href="../market_parameters/parameters.php">Config Parameters</a>
+							</li>
+							<li>
+								<a href="../market_parameters/market_parameters.php">Market Configurations</a>
+							</li>
+							
+						</ul>
+					</li>
+				<li>
+					<a href="javascript:void(0);" data-toggle="collapse" data-target="#ui_dr"><div class="pull-left"><i class="zmdi zmdi-smartphone-setup mr-20"></i><span class="right-nav-text">Deployment Center</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
 					<ul id="ui_dr" class="collapse collapse-level-1 two-col-list">
 						<li>
 							<a href="../versions/index.php">Versions</a>
@@ -342,19 +354,6 @@ echo <<<Headerfunction
 						
 					</ul>
 				</li>
-				<li>
-					<a href="javascript:void(0);" data-toggle="collapse" data-target="#form_dr"><div class="pull-left"><i class="zmdi zmdi-chart-donut mr-20"></i><span class="right-nav-text">Deployments</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
-					<ul id="form_dr" class="collapse collapse-level-1 two-col-list">
-						<li>
-							<a href="../deployments/index.php">Deployments Center</a>
-						</li>
-						<li>
-							<a href="../rollbacks/index.php">Rolls Backs</a>
-						</li>
-						
-					</ul>
-				</li>
-				
 				
 			
 				<li><hr class="light-grey-hr mb-10"/></li>

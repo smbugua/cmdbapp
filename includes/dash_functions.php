@@ -8,7 +8,7 @@ return $result;
 }
 function get_envs(){
 
-$count_envs=processquery("SELECT count(*) as env from environments ");
+$count_envs=processquery("SELECT count(*) as env from markets_environments ");
 $result=$count_envs['env'];
 return $result;	
 }
