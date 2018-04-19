@@ -27,7 +27,7 @@ $results=querydb("SELECT name from parameters order by name asc ");
 				
 				<!-- Row -->
 				<div class="row">
-					<div class="col-sm-12">
+					<div class="col-sm-6">
 						<div class="panel panel-default card-view">
 							<div class="panel-wrapper collapse in">
 								<div class="panel-body">

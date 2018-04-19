@@ -334,7 +334,7 @@ echo <<<Headerfunction
 						<a class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#form_dr"><div class="pull-left"><i class="zmdi zmdi-edit mr-20"></i><span class="right-nav-text">Configurations</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
 						<ul id="form_dr" class="collapse collapse-level-1 two-col-list">
 							<li>
-								<a href="../market_parameters/parameters.php">Config Parameters</a>
+								<a href="../parameters/view_parameters.php">Config Parameters</a>
 							</li>
 							<li>
 								<a href="../market_parameters/market_parameters.php">Market Configurations</a>
