@@ -1,6 +1,6 @@
 <?php
 include('../layout/nav.php');
-$results=querydb("SELECT");
+$results=querydb("SELECT n.name as nodename,n.ipaddress as ipaddress, m.market as marketname , me.name as marketenvironment from nodes n inner join markets_environments me on me.id =n.market_environment_id  inner join markets m on m.id=me.marketid order by m.market  asc");
 ?>
 <div class="right-sidebar-backdrop"></div>
 <!-- Main Content -->
