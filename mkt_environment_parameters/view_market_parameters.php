@@ -53,7 +53,7 @@ $markets=querydb("SELECT * FROM markets");
 								<div class="panel-wrapper collapse in">
 									<div class="panel-body">
 										<div class="form-wrap mt-40">
-											<form method="get" action="../controllers/marketcontrolclass.php?action=createenvironment"> 
+											<form method="post" action="market_parameters.php"> 
 												
 												<div class="form-group">
 													<label class="control-label mb-10">Market</label>
