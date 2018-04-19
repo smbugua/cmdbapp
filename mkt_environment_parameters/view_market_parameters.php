@@ -1,6 +1,6 @@
 <?php
 include('../layout/nav.php');
-$envs=querydb("SELECT * FROM markets_environments");
+$envs=querydb("SELECT * FROM environments");
 $markets=querydb("SELECT * FROM markets");
 
 ?>
@@ -22,7 +22,7 @@ $markets=querydb("SELECT * FROM markets");
 					<!-- Title -->
 					<div class="row heading-bg">
 						<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-							<h5 class="txt-dark">Add Endpoint</h5>
+							<h5 class="txt-dark">View market parameters</h5>
 						</div>
 					
 						<!-- Breadcrumb -->
@@ -30,7 +30,7 @@ $markets=querydb("SELECT * FROM markets");
 							<ol class="breadcrumb">
 								<li><a href="index.php">Dashboard</a></li>
 								<li><a href="#"><span>Infrastructure</span></a></li>
-								<li class="active"><span>Add Endpoint</span></li>
+								<li class="active"><span>Create Environment</span></li>
 							</ol>
 						</div>
 						<!-- /Breadcrumb -->
@@ -46,54 +46,20 @@ $markets=querydb("SELECT * FROM markets");
 							<div class="panel panel-default card-view">
 								<div class="panel-heading">
 									<div class="pull-left">
-										<h6 class="panel-title txt-dark">Endpoint Details</h6>
+										<h6 class="panel-title txt-dark">View market parameters</h6>
 									</div>
 									<div class="clearfix"></div>
 								</div>
 								<div class="panel-wrapper collapse in">
 									<div class="panel-body">
-										<p class="text-muted"> Add Endpoint eg: KE-PROD-APPS01,DU-TEST-APP003</p>
 										<div class="form-wrap mt-40">
-											<form method="post" action="../controllers/marketcontrolclass.php?action=createnode">
-												<div class="form-group">
-													<label class="control-label mb-10">Host Name</label>
-													<input type="text" name="name" class="form-control" required="">
-												</div>
-												<div class="form-group">
-													<label class="control-label mb-10">Host I.P Address</label>
-													<input type="text" name="ipaddress" class="form-control" required="">
-												</div>
-												<div class="form-group">
-													<label class="control-label mb-10">Host SCP/SSH Port</label>
-													<input type="text" name="port" class="form-control" required="">
-												</div>
-												<div class="form-group">
-													<label class="control-label mb-10">Username</label>
-													<input type="text" name="username" class="form-control" required="">
-												</div>
-												<div class="form-group">
-													<label class="control-label mb-10">Password</label>
-													<input type="password" name="password" class="form-control" required="">
-												</div>
-													<div class="form-group">
-													<label class="control-label mb-10">Environment</label>
-													<select class="form-control select2" name="market_environment_id">
-														<option>Select</option>
-														<optgroup label="Environment">
-															<?php while($row=mysqli_fetch_array($envs,MYSQLI_ASSOC)){?>
-															<option value="<?php echo $row['id']?>"><?php echo $row['name']?></option>
-															<?php }?>
-														</optgroup>
-														
-														
-													</select>
-												</div>
-
+											<form method="get" action="../controllers/marketcontrolclass.php?action=createenvironment"> 
+												
 												<div class="form-group">
 													<label class="control-label mb-10">Market</label>
 													<select class="form-control select2" name="market">
 														<option>Select</option>
-														<optgroup label="Markets">
+														<!--<optgroup label="Markets"> -->
 															<?php while($row=mysqli_fetch_array($markets,MYSQLI_ASSOC)){?>
 															<option value="<?php echo $row['id']?>"><?php echo $row['market']?></option>
 															<?php }?>
@@ -103,7 +69,7 @@ $markets=querydb("SELECT * FROM markets");
 													</select>
 												</div>
 
-														<button type="submit" class="btn btn-success mr-10" name="addmarket">Add</button>
+														<button type="submit" class="btn btn-success mr-10" name="addmarket">View</button>
 												</div>	
 												
 												

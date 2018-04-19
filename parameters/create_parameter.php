@@ -9,7 +9,7 @@ include('../layout/nav.php');
 					<!-- Title -->
 					<div class="row heading-bg">
 						<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-							<h5 class="txt-dark">Add Application</h5>
+							<h5 class="txt-dark">Add Parameters</h5>
 						</div>
 					
 						<!-- Breadcrumb -->
@@ -17,7 +17,7 @@ include('../layout/nav.php');
 							<ol class="breadcrumb">
 								<li><a href="index.php">Dashboard</a></li>
 								<li><a href="../admin/infrastructure.php"><span>Infrastructure</span></a></li>
-								<li class="active"><span>Add App</span></li>
+								<li class="active"><span>Add Parameters</span></li>
 							</ol>
 						</div>
 						<!-- /Breadcrumb -->
@@ -34,9 +34,9 @@ include('../layout/nav.php');
 										<div class="row">
 											<div class="col-sm-12 col-xs-12">
 												<div class="form-wrap">
-													<form action="../controllers/marketcontrolclass.php?action=addApp" method="post">
+													<form action="../controllers/marketcontrolclass.php?action=addParameters" method="post">
 														<div class="form-group">
-															<label class="control-label mb-10"  for="exampleInputuname_1">Application Name</label>
+															<label class="control-label mb-10"  for="exampleInputuname_1">Parameter Name</label>
 															<div class="input-group">
 																<div class="input-group-addon"><i class="icon-user"></i></div>
 																<input type="text" class="form-control" id="exampleInputuname_1" name="names" placeholder="App Name" required="">

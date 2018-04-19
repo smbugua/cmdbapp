@@ -61,7 +61,7 @@ include('../layout/nav.php');
 											<div class="row">
 												<div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left">
 													<span class="txt-dark block counter"><span class="counter-anim"><?php echo get_nodes()?></span></span>
-													<span class="weight-500 uppercase-font block">End points</span>
+													<span class="weight-500 uppercase-font block">Nodes</span>
 												</div>
 												<div class="col-xs-6 text-center  pl-0 pr-0 data-wrap-right">
 													<i class="icon-control-rewind data-right-rep-icon txt-light-grey"></i>
@@ -131,8 +131,8 @@ include('../layout/nav.php');
 									<ul>
 										<a href="../markets/create_market.php" class=" btn btn-info btn-outline btn-rounded">Add Market</a> 
 										<a href="../environments/create_environment.php" class=" btn btn-primary btn-outline btn-rounded">Add Environment</a>  
-										<a href="../nodes/create_node.php" class=" btn btn-success btn-outline btn-rounded">Add End Point</a> 
-										<a href="../apps/create_app.php" class=" btn btn-danger btn-outline btn-rounded">Add Application</a> 
+										<a href="../nodes/create_node.php" class=" btn btn-success btn-outline btn-rounded">Add Node</a> 
+										<a href="../apps/create_app.php" class=" btn btn-danger btn-outline btn-rounded">Add App</a> 
 									</ul>
 									<ul class="flex-stat mt-40">
 										<li>
@@ -194,12 +194,12 @@ include('../layout/nav.php');
 						<div class="panel panel-default card-view">
 							<div class="panel-heading">
 								<div class="pull-left">
-									<h6 class="panel-title txt-dark">browser stats</h6>
+									<h6 class="panel-title txt-dark">Apps</h6>
 								</div>
 								<div class="pull-right">
-									<a href="#" class="pull-left inline-block mr-15">
+									<!--<a href="#" class="pull-left inline-block mr-15">
 										<i class="zmdi zmdi-download"></i>
-									</a>
+									</a> -->
 									<a href="#" class="pull-left inline-block close-panel" data-effect="fadeOut">
 										<i class="zmdi zmdi-close"></i>
 									</a>
@@ -209,29 +209,29 @@ include('../layout/nav.php');
 							<div class="panel-wrapper collapse in">
 								<div class="panel-body">
 									<div>
+										<?php 
+										$results=querydb("SELECT name from apps order by name asc ");
+										$no=1;
+										while( $row=mysqli_fetch_array($results,MYSQLI_ASSOC)){ ?>
 										<span class="pull-left inline-block capitalize-font txt-dark">
-											google chrome
+											<?php echo $row['name']?>
 										</span>
-										<span class="label label-warning pull-right">50%</span>
 										<div class="clearfix"></div>
 										<hr class="light-grey-hr row mt-10 mb-10"/>
 										<span class="pull-left inline-block capitalize-font txt-dark">
-											mozila firefox
+											<?php } $no ++; ?>
 										</span>
-										<span class="label label-danger pull-right">10%</span>
+										<!--<div class="clearfix"></div>
+										<hr class="light-grey-hr row mt-10 mb-10"/>
+										<span class="pull-left inline-block capitalize-font txt-dark">
+											CDR-Parser
+										</span>
 										<div class="clearfix"></div>
 										<hr class="light-grey-hr row mt-10 mb-10"/>
 										<span class="pull-left inline-block capitalize-font txt-dark">
-											Internet explorer
+											Float Manager
 										</span>
-										<span class="label label-success pull-right">30%</span>
-										<div class="clearfix"></div>
-										<hr class="light-grey-hr row mt-10 mb-10"/>
-										<span class="pull-left inline-block capitalize-font txt-dark">
-											safari
-										</span>
-										<span class="label label-primary pull-right">10%</span>
-										<div class="clearfix"></div>
+										<div class="clearfix"></div> -->
 									</div>
 								</div>	
 							</div>

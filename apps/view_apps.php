@@ -1,6 +1,6 @@
 <?php
 include('../layout/nav.php');
-$results=querydb("SELECT");
+$results=querydb("SELECT name from apps order by name asc ");
 ?>
 <div class="right-sidebar-backdrop"></div>
 <!-- Main Content -->
@@ -18,7 +18,7 @@ $results=querydb("SELECT");
 							<ol class="breadcrumb">
 								<li><a href="index.php">Dashboard</a></li>
 								<li><a href="../admin/infrastructure.php"><span>Infrastructure</span></a></li>
-								<li class="active"><span>Nodes</span></li>
+								<li class="active"><span>Apps</span></li>
 							</ol>
 						</div>
 						<!-- /Breadcrumb -->
@@ -36,14 +36,7 @@ $results=querydb("SELECT");
 											<table id="example" class="table table-hover display  pb-30" >
 												<thead>
 													<tr>
-														<th>No</th>
-														<th>Market name</th>
-														<th>Market environment</th>
-														<th>Node name</th>
-														<th>IP Address</th>
-														<th>Port</th>
-														<th>Edit</th>
-														<th>Deactvate</th>
+														<th>App Name</th>
 													</tr>
 												</thead>
 												<tfoot>
@@ -54,12 +47,9 @@ $results=querydb("SELECT");
 													while( $row=mysqli_fetch_array($results,MYSQLI_ASSOC)){ ?>
 													<tr>
 														<td><?php echo $no ?></td>
-														<td><?php echo $row['marketname']?></td>
-														<td><?php echo $row['marketenvironment']?></td>
-														<td><?php echo $row['nodename']?></td>
-														<td><?php echo $row['ipaddress']?></td>
-														<td><a href="edit_nodes.php?<?php echo $row['id']?>" ><i class="fa fa-edit"></i> Edit</a>  </td>
-														<td><a href="../controllers/marketcontrolclass.php?<?php echo $row['id']?>&&action=deactivatenode"  ><i class="fa fa-trash"></i> De-Activate</a>  </td>
+														<td><?php echo $row['name']?></td>
+													<!--	<td><a href="edit_nodes.php?<?php echo $row['id']?>" ><i class="fa fa-edit"></i> Edit</a>  </td>
+														<td><a href="../controllers/marketcontrolclass.php?<?php echo $row['id']?>&&action=deactivatenode"  ><i class="fa fa-trash"></i> De-Activate</a>  </td> -->
 													</tr>
 
 													<?php } $no ++; ?>
