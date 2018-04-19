@@ -1,5 +1,5 @@
 <?php
-include('auth.php');
+include('mainclass.php');
 function get_markets(){
 $count_markets=processquery("SELECT count(*) as marketcount from markets ");
 $result=$count_markets['marketcount'];
@@ -44,3 +44,4 @@ return  array('market' => $result['market'] ,
 				'mkt' => $result['mkt'],
 				'id' => $result['id'] );
 }
+

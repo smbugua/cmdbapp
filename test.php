@@ -1,14 +1,5 @@
 <?php
-require_once('includes/auth.php');
-function get_limit_markets(){
-    $count_nodes=querydb("SELECT id,market,mkt 
-                           from  markets 
-                           where status= 1 
-                           order by market asc 
-                           limit 5 ");
-
-    return mysqli_fetch_all($count_nodes,MYSQLI_ASSOC);
-}
-
-$res=get_limit_markets();
-print_r($res['id']);
+require_once('includes/dash_functions.php');
+$exe=new MainClass();
+//$exe->addMarket('Tanzania','TZ');
+$exe->updateTable('markets','mkt','TZ1','4');
