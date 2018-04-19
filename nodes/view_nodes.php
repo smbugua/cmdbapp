@@ -1,6 +1,6 @@
 <?php
 include('../layout/nav.php');
-$results=querydb("SELECT * from markets order by market asc ");
+$results=querydb("SELECT n.name as nodename,n.ipaddress as ipaddress, m.market as marketname , me.name as marketenvironment from nodes n inner join markets_environments me on me.id =n.market_environment_id  inner join markets m on m.id=me.marketid order by m.market  asc ");
 ?>
 <div class="right-sidebar-backdrop"></div>
 <!-- Main Content -->
@@ -10,7 +10,7 @@ $results=querydb("SELECT * from markets order by market asc ");
 					<!-- Title -->
 					<div class="row heading-bg">
 						<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-							<h5 class="txt-dark">Market</h5>
+							<h5 class="txt-dark">Create Market</h5>
 						</div>
 					
 						<!-- Breadcrumb -->
@@ -37,8 +37,10 @@ $results=querydb("SELECT * from markets order by market asc ");
 												<thead>
 													<tr>
 														<th>No</th>
+														<th>Name</th>
 														<th>Market</th>
-														<th>Abbreviation</th>
+														<th>Environment</th>
+														<th>IP</th>
 														<th>Edit</th>
 														<th>Deactvate</th>
 													</tr>
@@ -46,29 +48,28 @@ $results=querydb("SELECT * from markets order by market asc ");
 												<tfoot>
 													<tr>
 														<th>No</th>
+														<th>Name</th>
 														<th>Market</th>
-														<th>Abbreviation</th>
+														<th>Environment</th>
+														<th>IP</th>
 														<th>Edit</th>
 														<th>Deactvate</th>
 													</tr>
 												</tfoot>
 												<tbody>
 													<?php 
-
 													$no=1;
-													while( $row=mysqli_fetch_array($results,MYSQLI_ASSOC)){ 
-
-														?>
+													while( $row=mysqli_fetch_array($results,MYSQLI_ASSOC)){ ?>
 													<tr>
-
-														<td><?php echo $no++ ?></td>
-														<td><?php echo $row['market']?></td>
-														<td><?php echo $row['mkt']?></td>
-														<td><a href="edit_market.php?<?php echo $row['id']?>" ><i class="fa fa-edit"></i> Edit</a>  </td>
-														<td><a href="../controllers/marketcontrolclass.php?<?php echo $row['id']?>&&action=deactivate"  ><i class="fa fa-trash"></i> De-Activate</a>  </td>
+														<td><?php echo $no ?></td>
+														<td><?php echo $row['nodename']?></td>
+														<td><?php echo $row['marketname']?></td>
+														<td><?php echo $row['marketenvironmentke']?></td>
+														<td><a href="edit_nodes.php?<?php echo $row['id']?>" ><i class="fa fa-edit"></i> Edit</a>  </td>
+														<td><a href="../controllers/marketcontrolclass.php?<?php echo $row['id']?>&&action=deactivatenode"  ><i class="fa fa-trash"></i> De-Activate</a>  </td>
 													</tr>
 
-													<?php } ?>
+													<?php } $no ++; ?>
 												</tbody>
 											</table>
 										</div>
