@@ -337,7 +337,7 @@ echo <<<Headerfunction
 								<a href="../parameters/view_parameters.php">Config Parameters</a>
 							</li>
 							<li>
-								<a href="../view_market_parameters/market_parameters.php">Market Configurations</a>
+								<a href="../mkt_environment_parameters/view_market_parameters.php">Market Configurations</a>
 							</li>
 							
 						</ul>
