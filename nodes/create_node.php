@@ -1,6 +1,7 @@
 <?php
 include('../layout/nav.php');
 $envs=querydb("SELECT * FROM markets_environments");
+$markets=querydb("SELECT * FROM markets");
 
 ?>
 
@@ -53,21 +54,47 @@ $envs=querydb("SELECT * FROM markets_environments");
 									<div class="panel-body">
 										<p class="text-muted"> Add Endpoint eg: KE-PROD-APPS01,DU-TEST-APP003</p>
 										<div class="form-wrap mt-40">
-											<form action="add_environment" action="../controllers/marketcontrolclass.php">
+											<form action="add_node" action="../controllers/marketcontrolclass.php">
 												<div class="form-group">
-													<label class="control-label mb-10">Name</label>
+													<label class="control-label mb-10">Host Name</label>
 													<input type="text" name="name" class="form-control" required="">
 												</div>
 												<div class="form-group">
-													<label class="control-label mb-10">Name</label>
-													<input type="text" name="name" class="form-control" required="">
+													<label class="control-label mb-10">Host I.P Address</label>
+													<input type="text" name="ipaddress" class="form-control" required="">
 												</div>
+												<div class="form-group">
+													<label class="control-label mb-10">Host SCP/SSH Port</label>
+													<input type="text" name="port" class="form-control" required="">
+												</div>
+												<div class="form-group">
+													<label class="control-label mb-10">Username</label>
+													<input type="text" name="username" class="form-control" required="">
+												</div>
+												<div class="form-group">
+													<label class="control-label mb-10">Password</label>
+													<input type="password" name="password" class="form-control" required="">
+												</div>
+													<div class="form-group">
+													<label class="control-label mb-10">Environment</label>
+													<select class="form-control select2" name="env">
+														<option>Select</option>
+														<optgroup label="Environment">
+															<?php while($row=mysqli_fetch_array($envs,MYSQLI_ASSOC)){?>
+															<option value="<?php echo $row['id']?>"><?php echo $row['name']?></option>
+															<?php }?>
+														</optgroup>
+														
+														
+													</select>
+												</div>
+
 												<div class="form-group">
 													<label class="control-label mb-10">Market</label>
-													<select class="form-control select2">
+													<select class="form-control select2" name="market">
 														<option>Select</option>
 														<optgroup label="Markets">
-															<?php while($row=mysqli_fetch_array($envs,MYSQLI_ASSOC)){?>
+															<?php while($row=mysqli_fetch_array($markets,MYSQLI_ASSOC)){?>
 															<option value="<?php echo $row['id']?>"><?php echo $row['market']?></option>
 															<?php }?>
 														</optgroup>
