@@ -1,6 +1,7 @@
 <?php
 include('../layout/nav.php');
-$envs=querydb("SELECT * FROM markets");
+$envs=querydb("SELECT * FROM environments");
+$markets=querydb("SELECT * FROM markets");
 
 ?>
 
@@ -59,11 +60,24 @@ $envs=querydb("SELECT * FROM markets");
 													<input type="text" name="name" class="form-control" required="">
 												</div>
 												<div class="form-group">
+													<label class="control-label mb-10">Environment</label>
+													<select class="form-control select2" name="environement">
+														<option>Select</option>
+														<optgroup label="Environments">
+															<?php while($row=mysqli_fetch_array($envs,MYSQLI_ASSOC)){?>
+															<option value="<?php echo $row['id']?>"><?php echo $row['name']?></option>
+															<?php }?>
+														</optgroup>
+														
+														
+													</select>
+												</div>
+												<div class="form-group">
 													<label class="control-label mb-10">Market</label>
-													<select class="form-control select2">
+													<select class="form-control select2" name="market">
 														<option>Select</option>
 														<optgroup label="Markets">
-															<?php while($row=mysqli_fetch_array($envs,MYSQLI_ASSOC)){?>
+															<?php while($row=mysqli_fetch_array($markets,MYSQLI_ASSOC)){?>
 															<option value="<?php echo $row['id']?>"><?php echo $row['market']?></option>
 															<?php }?>
 														</optgroup>

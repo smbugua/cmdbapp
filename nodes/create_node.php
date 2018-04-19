@@ -1,6 +1,6 @@
 <?php
 include('../layout/nav.php');
-$envs=querydb("SELECT * FROM markets");
+$envs=querydb("SELECT * FROM markets_environments");
 
 ?>
 
@@ -54,6 +54,10 @@ $envs=querydb("SELECT * FROM markets");
 										<p class="text-muted"> Add Endpoint eg: KE-PROD-APPS01,DU-TEST-APP003</p>
 										<div class="form-wrap mt-40">
 											<form action="add_environment" action="../controllers/marketcontrolclass.php">
+												<div class="form-group">
+													<label class="control-label mb-10">Name</label>
+													<input type="text" name="name" class="form-control" required="">
+												</div>
 												<div class="form-group">
 													<label class="control-label mb-10">Name</label>
 													<input type="text" name="name" class="form-control" required="">
