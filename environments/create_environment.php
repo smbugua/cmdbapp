@@ -28,9 +28,9 @@ $markets=querydb("SELECT * FROM markets");
 						<!-- Breadcrumb -->
 						<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 							<ol class="breadcrumb">
-								<li><a href="index.html">Dashboard</a></li>
-								<li><a href="#"><span>forms</span></a></li>
-								<li class="active"><span>form-advanced</span></li>
+								<li><a href="index.php">Dashboard</a></li>
+								<li><a href="#"><span>Infrastructure</span></a></li>
+								<li class="active"><span>Create Environment</span></li>
 							</ol>
 						</div>
 						<!-- /Breadcrumb -->
@@ -54,7 +54,7 @@ $markets=querydb("SELECT * FROM markets");
 									<div class="panel-body">
 										<p class="text-muted"> Add Environemnt eg: KE-PROD,DU-TEST</p>
 										<div class="form-wrap mt-40">
-											<form action="add_environment" action="../controllers/marketcontrolclass.php">
+											<form method="post" action="../controllers/marketcontrolclass.php?action=createenvironment">
 												<div class="form-group">
 													<label class="control-label mb-10">Name</label>
 													<input type="text" name="name" class="form-control" required="">
