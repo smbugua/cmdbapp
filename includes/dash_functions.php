@@ -1,5 +1,6 @@
 <?php
 include('mainclass.php');
+$exec=new mainclass();
 function get_markets(){
 $count_markets=processquery("SELECT count(*) as marketcount from markets ");
 $result=$count_markets['marketcount'];
