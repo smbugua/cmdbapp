@@ -69,10 +69,11 @@ class MainClass
 		querydb("INSERT INTO roles(name)values('$name')");
 	}
 
-	function executeForm($url,$action){
-		ob_start();
-		exit(header("Location:$url?action=$action"));
-		ob_end_flush();
+	function editObject($action,$id){
+		echo("../controllers/updatecontroller.php?action=$action&&id=$id");
+	}
+	function editClass($object,$id){
+		echo ("edit$object.php?id=$id");
 	}
 
 }

@@ -40,31 +40,24 @@ $results=querydb("SELECT * from markets order by market asc ");
 														<th>Market</th>
 														<th>Abbreviation</th>
 														<th>Edit</th>
-														<th>Deactvate</th>
+														<th>Deactivate</th>
 													</tr>
 												</thead>
 												<tfoot>
-													<tr>
-														<th>No</th>
-														<th>Market</th>
-														<th>Abbreviation</th>
-														<th>Edit</th>
-														<th>Deactvate</th>
-													</tr>
 												</tfoot>
 												<tbody>
 													<?php 
 
 													$no=1;
 													while( $row=mysqli_fetch_array($results,MYSQLI_ASSOC)){ 
-
+															$id= $row['id'];
 														?>
 													<tr>
 
 														<td><?php echo $no++ ?></td>
 														<td><?php echo $row['market']?></td>
 														<td><?php echo $row['mkt']?></td>
-														<td><a href="edit_market.php?<?php echo $row['id']?>" ><i class="fa fa-edit"></i> Edit</a>  </td>
+														<td><a href="<?php $exec->editClass('market',$id)?>" ><i class="fa fa-edit" onclick="editUser"></i> Edit</a>  </td>
 														<td><a href="../controllers/marketcontrolclass.php?<?php echo $row['id']?>&&action=deactivate"  ><i class="fa fa-trash"></i> De-Activate</a>  </td>
 													</tr>
 

@@ -48,4 +48,12 @@ if ($_GET['action']=="addmarket"){
 
 	}
 
+	elseif ($_GET['action']=="edit") {
+		$marketname=$_POST['marketname'];
+		$marketabbreviation=$_POST['marketabbreviation'];
+		$exec->edit($name);
+		header("Location: ../markets/view_market.php");
+
+	}
+
 ?>
