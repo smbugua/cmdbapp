@@ -68,4 +68,11 @@ class MainClass
 	function addRole($name){
 		querydb("INSERT INTO roles(name)values('$name')");
 	}
+
+	function executeForm($url,$action){
+		ob_start();
+		exit(header("Location:$url?action=$action"));
+		ob_end_flush();
+	}
+
 }
