@@ -1,6 +1,6 @@
 <?php
 include('../layout/nav.php');
-$results=querydb("SELECT n.name as nodename,n.ipaddress as ipaddress, m.market as marketname , me.name as marketenvironment from nodes n inner join markets_environments me on me.id =n.market_environment_id  inner join markets m on m.id=me.marketid where n.status = 0 order by m.market  asc");
+$results=querydb("SELECT * from markets where status = 1 order by market asc ");
 ?>
 <div class="right-sidebar-backdrop"></div>
 <!-- Main Content -->
@@ -10,7 +10,7 @@ $results=querydb("SELECT n.name as nodename,n.ipaddress as ipaddress, m.market a
 					<!-- Title -->
 					<div class="row heading-bg">
 						<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-							<h5 class="txt-dark">Nodes</h5>
+							<h5 class="txt-dark">Deactivated Markets</h5>
 						</div>
 					
 						<!-- Breadcrumb -->
@@ -18,7 +18,7 @@ $results=querydb("SELECT n.name as nodename,n.ipaddress as ipaddress, m.market a
 							<ol class="breadcrumb">
 								<li><a href="index.php">Dashboard</a></li>
 								<li><a href="../admin/infrastructure.php"><span>Infrastructure</span></a></li>
-								<li class="active"><span>Nodes</span></li>
+								<li class="active"><span>Deactivated Markets</span></li>
 							</ol>
 						</div>
 						<!-- /Breadcrumb -->
@@ -37,32 +37,29 @@ $results=querydb("SELECT n.name as nodename,n.ipaddress as ipaddress, m.market a
 												<thead>
 													<tr>
 														<th>No</th>
-														<th>Market name</th>
-														<th>Market environment</th>
-														<th>Node name</th>
-														<th>IP Address</th>
-														<th>Port</th>
-														<th>Edit</th>
-														<th>Deactivate</th>
+														<th>Market</th>
+														<th>Abbreviation</th>
+														<th>Activate</th>
 													</tr>
 												</thead>
 												<tfoot>
 												</tfoot>
 												<tbody>
 													<?php 
+
 													$no=1;
-													while( $row=mysqli_fetch_array($results,MYSQLI_ASSOC)){ ?>
+													while( $row=mysqli_fetch_array($results,MYSQLI_ASSOC)){ 
+															$id= $row['id'];
+														?>
 													<tr>
-														<td><?php echo $no ?></td>
-														<td><?php echo $row['marketname']?></td>
-														<td><?php echo $row['marketenvironment']?></td>
-														<td><?php echo $row['nodename']?></td>
-														<td><?php echo $row['ipaddress']?></td>
-														<td><a href="<?php $exec->editClass('node',$id)?>" ><i class="fa fa-edit"></i> Edit</a>  </td>
-														<td><a href="../controllers/updatecontroller.php?id=<?php echo $row['id']?>&&action=deactivatenode"  ><i class="fa fa-trash"></i> De-Activate</a>  </td>
+
+														<td><?php echo $no++ ?></td>
+														<td><?php echo $row['market']?></td>
+														<td><?php echo $row['mkt']?></td>
+														<td><a href="../controllers/updatecontroller.php?id=<?php echo $row['id']?>&&action=activatemarket"  ><i class="fa fa-trash"></i> Activate</a>  </td>
 													</tr>
 
-													<?php } $no ++; ?>
+													<?php } ?>
 												</tbody>
 											</table>
 										</div>

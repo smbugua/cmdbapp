@@ -1,6 +1,6 @@
 <?php
 include('../layout/nav.php');
-$results=querydb("SELECT * from markets order by market asc ");
+$results=querydb("SELECT * from markets where status = 0 order by market asc ");
 ?>
 <div class="right-sidebar-backdrop"></div>
 <!-- Main Content -->
@@ -18,7 +18,7 @@ $results=querydb("SELECT * from markets order by market asc ");
 							<ol class="breadcrumb">
 								<li><a href="index.php">Dashboard</a></li>
 								<li><a href="../admin/infrastructure.php"><span>Infrastructure</span></a></li>
-								<li class="active"><span>Create Market</span></li>
+								<li class="active"><span>View Market</span></li>
 							</ol>
 						</div>
 						<!-- /Breadcrumb -->
@@ -58,7 +58,7 @@ $results=querydb("SELECT * from markets order by market asc ");
 														<td><?php echo $row['market']?></td>
 														<td><?php echo $row['mkt']?></td>
 														<td><a href="<?php $exec->editClass('market',$id)?>" ><i class="fa fa-edit" onclick="editUser"></i> Edit</a>  </td>
-														<td><a href="../controllers/marketcontrolclass.php?<?php echo $row['id']?>&&action=deactivate"  ><i class="fa fa-trash"></i> De-Activate</a>  </td>
+														<td><a href="../controllers/updatecontroller.php?id=<?php echo $row['id']?>&&action=deactivatemarket"  ><i class="fa fa-trash"></i> De-Activate</a>  </td>
 													</tr>
 
 													<?php } ?>
