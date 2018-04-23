@@ -19,7 +19,7 @@ if ($_GET['action']=="addmarket"){
 		$environment=$_POST['environment'];
 		$market=$_POST['market'];
 		$exec->addMarketEnvironment($name,$market,$environment);
-		header("Location: ../markets/view_market.php");
+		header("Location: ../environments/view_market_environment.php");
 
 	}
 
@@ -35,7 +35,7 @@ if ($_GET['action']=="addmarket"){
 	}
 
 	elseif ($_GET['action']=="addApp") {
-		$name=$_POST['names'];
+		$name=$_POST['name'];
 		$exec->addApp($name);
 		header("Location: ../apps/view_apps.php");
 

@@ -25,8 +25,24 @@ else if ($_GET['action']=="editnode") {
 	$exec->updateTable('markets','password',$password,$id);
 	$exec->updateTable('markets','market_environment_id',$market_environment_id,$id);
 	$exec->updateTable('markets','market',$market,$id);
-
 	header("Location: ../nodes/view_nodes.php");
+}
+else if ($_GET['action']=="editmarketenvironment") {
+	$name=$_POST['name'];
+	$environment=$_POST['environment'];
+	$market=$_POST['market'];
+	$id=$_REQUEST['id'];
+	$exec->updateTable('markets_environments','name',$name,$id);
+	$exec->updateTable('markets_environments','marketid',$environment,$id);
+	$exec->updateTable('markets_environments','environmentid',$market,$id);
+	header("Location: ../nodes/view_nodes.php");
+}
+
+else if ($_GET['action']=="editapps") {
+	$name=$_POST['name'];
+	$id=$_REQUEST['id'];
+	$exec->updateTable('apps','name',$name,$id);
+	header("Location: ../apps/view_apps.php");
 }
 
 else if ($_GET['action']=="deactivatemarket") {

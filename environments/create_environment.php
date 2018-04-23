@@ -52,7 +52,7 @@ $markets=querydb("SELECT * FROM markets");
 								</div>
 								<div class="panel-wrapper collapse in">
 									<div class="panel-body">
-										<p class="text-muted"> Add Environemnt eg: KE-PROD,DU-TEST</p>
+										<p class="text-muted"> Add Environment eg: KE-PROD,DU-TEST</p>
 										<div class="form-wrap mt-40">
 											<form method="post" action="../controllers/marketcontrolclass.php?action=createenvironment">
 												<div class="form-group">
@@ -61,7 +61,7 @@ $markets=querydb("SELECT * FROM markets");
 												</div>
 												<div class="form-group">
 													<label class="control-label mb-10">Environment</label>
-													<select class="form-control select2" name="environement">
+													<select class="form-control select2" name="environment">
 														<option>Select</option>
 														<optgroup label="Environments">
 															<?php while($row=mysqli_fetch_array($envs,MYSQLI_ASSOC)){?>

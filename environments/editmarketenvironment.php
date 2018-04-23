@@ -1,10 +1,10 @@
-
 <?php
 include('../layout/nav.php');
 $id=$_REQUEST['id'];
-$row=processquery("SELECT * from nodes where id='$id' ");
+$row=processquery("SELECT * from markets_environments where id='$id' ");
+$envs=querydb("SELECT * FROM environments");
+$markets=querydb("SELECT * FROM markets");
 ?>
-
 	
 		
 		<!-- select2 CSS -->
@@ -22,7 +22,7 @@ $row=processquery("SELECT * from nodes where id='$id' ");
 					<!-- Title -->
 					<div class="row heading-bg">
 						<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-							<h5 class="txt-dark">Edit Endpoint</h5>
+							<h5 class="txt-dark">Edit Market Environmemnt</h5>
 						</div>
 					
 						<!-- Breadcrumb -->
@@ -30,7 +30,7 @@ $row=processquery("SELECT * from nodes where id='$id' ");
 							<ol class="breadcrumb">
 								<li><a href="index.php">Dashboard</a></li>
 								<li><a href="#"><span>Infrastructure</span></a></li>
-								<li class="active"><span>Edit Endpoint</span></li>
+								<li class="active"><span>Edit Market Environment</span></li>
 							</ol>
 						</div>
 						<!-- /Breadcrumb -->
@@ -46,40 +46,24 @@ $row=processquery("SELECT * from nodes where id='$id' ");
 							<div class="panel panel-default card-view">
 								<div class="panel-heading">
 									<div class="pull-left">
-										<h6 class="panel-title txt-dark">Endpoint Details</h6>
+										<h6 class="panel-title txt-dark">Edit Environment</h6>
 									</div>
 									<div class="clearfix"></div>
 								</div>
 								<div class="panel-wrapper collapse in">
 									<div class="panel-body">
-										<p class="text-muted"> Add Endpoint eg: KE-PROD-APPS01,DU-TEST-APP003</p>
+										<!-- <p class="text-muted"> Add Environment eg: KE-PROD,DU-TEST</p> -->
 										<div class="form-wrap mt-40">
-											<form method="post" action="<?php $exec->editObject('editnode',$id)?>" >
+											<form method="post" action="<?php $exec->editObject('editmarketenvironment',$id)?>"">
 												<div class="form-group">
-													<label class="control-label mb-10">Host Name</label>
-													<input type="text" name="name" class="form-control"  required="" value="<?php echo $row['name']?>">
+													<label class="control-label mb-10">Name</label>
+													<input type="text" name="name" class="form-control" required="" value="<?php echo $row['name']?>">
 												</div>
 												<div class="form-group">
-													<label class="control-label mb-10">Host I.P Address</label>
-													<input type="text" name="ipaddress" class="form-control" required="" value="<?php echo $row['ipaddress']?>">
-												</div>
-												<div class="form-group">
-													<label class="control-label mb-10">Host SCP/SSH Port</label>
-													<input type="text" name="port" class="form-control" required="" value="<?php echo $row['port']?>">
-												</div>
-												<div class="form-group">
-													<label class="control-label mb-10">Username</label>
-													<input type="text" name="username" class="form-control" required="" value="<?php echo $row['username']?>">
-												</div>
-												<div class="form-group">
-													<label class="control-label mb-10">Password</label>
-													<input type="password" name="password" class="form-control" required="" value="<?php echo $row['password']?>">
-												</div>
-													<div class="form-group">
 													<label class="control-label mb-10">Environment</label>
-													<select class="form-control select2" name="market_environment_id">
+													<select class="form-control select2" name="environment" >
 														<option>Select</option>
-														<optgroup label="Environment">
+														<optgroup label="Environments">
 															<?php while($row=mysqli_fetch_array($envs,MYSQLI_ASSOC)){?>
 															<option value="<?php echo $row['id']?>"><?php echo $row['name']?></option>
 															<?php }?>
@@ -88,10 +72,9 @@ $row=processquery("SELECT * from nodes where id='$id' ");
 														
 													</select>
 												</div>
-
 												<div class="form-group">
 													<label class="control-label mb-10">Market</label>
-													<select class="form-control select2" name="market">
+													<select class="form-control select2" name="market" >
 														<option>Select</option>
 														<optgroup label="Markets">
 															<?php while($row=mysqli_fetch_array($markets,MYSQLI_ASSOC)){?>
@@ -104,7 +87,6 @@ $row=processquery("SELECT * from nodes where id='$id' ");
 												</div>
 
 														<button type="submit" class="btn btn-success mr-10" name="addmarket">Edit</button>
-														<button type="submit" class="btn btn-default" name="cancel">Cancel</button>
 												</div>	
 												
 												

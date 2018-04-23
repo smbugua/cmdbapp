@@ -1,5 +1,7 @@
 <?php
 include('../layout/nav.php');
+$id=$_REQUEST['id'];
+$row=processquery("SELECT * from apps where id='$id' ");
 ?>
 <div class="right-sidebar-backdrop"></div>
 <!-- Main Content -->
@@ -9,7 +11,7 @@ include('../layout/nav.php');
 					<!-- Title -->
 					<div class="row heading-bg">
 						<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-							<h5 class="txt-dark">Add Application</h5>
+							<h5 class="txt-dark">Edit Apps</h5>
 						</div>
 					
 						<!-- Breadcrumb -->
@@ -17,7 +19,7 @@ include('../layout/nav.php');
 							<ol class="breadcrumb">
 								<li><a href="index.php">Dashboard</a></li>
 								<li><a href="../admin/infrastructure.php"><span>Infrastructure</span></a></li>
-								<li class="active"><span>Add App</span></li>
+								<li class="active"><span>Edit Apps</span></li>
 							</ol>
 						</div>
 						<!-- /Breadcrumb -->
@@ -34,17 +36,17 @@ include('../layout/nav.php');
 										<div class="row">
 											<div class="col-sm-12 col-xs-12">
 												<div class="form-wrap">
-													<form action="../controllers/marketcontrolclass.php?action=addApp" method="post">
+													<form action="<?php $exec->editObject('editapps',$id)?>" method="post">
 														<div class="form-group">
 															<label class="control-label mb-10"  for="exampleInputuname_1">Application Name</label>
 															<div class="input-group">
 																<div class="input-group-addon"><i class="icon-user"></i></div>
-																<input type="text" class="form-control" id="exampleInputuname_1" name="name" placeholder="App Name" required="">
+																<input type="text" class="form-control" id="exampleInputuname_1" value="<?php echo $row['name']?>" name="name" placeholder="App Name" required="">
 															</div>
 																						
 														</div>
 												
-														<button type="submit" class="btn btn-success mr-10" name="addmarket">Add</button>
+														<button type="submit" class="btn btn-success mr-10" name="addmarket">Edit</button>
 														<button type="submit" class="btn btn-default" name="cancel">Cancel</button>
 													</form>
 												</div>
@@ -54,5 +56,4 @@ include('../layout/nav.php');
 								</div>
 							</div>
 						</div>
-					</div>
 						<?php include_once('../layout/footer.php');?>

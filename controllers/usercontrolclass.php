@@ -6,11 +6,13 @@ require_once('../includes/auth.php');
 		$username=$_POST['username'];
 		$email=$_POST['email'];
 		$password=md5($_POST['password']);
+/*		$password=password_hash(($_POST['password']), PASSWORD_DEFAULT);*/
 		querydb("INSERT INTO users (username,email,hashpassword)VALUES('$username','$email','$password')");
 		header("Location: ../access/index.php");
 	}elseif ($_GET['action']=="signin") {
 		$email=$_POST['email'];
 		$password=md5($_POST['password']);
+		/*$password=password_hash(($_POST['password']), PASSWORD_DEFAULT);*/
 		$u=querydb("SELECT email,username,id,hashpassword from users where email='$email' and hashpassword='$password' ");
 		$userq=mysqli_fetch_array($u,MYSQLI_ASSOC);
 		$no=numquery("SELECT email,username,id,hashpassword from users where email='$email' and hashpassword='$password' ");

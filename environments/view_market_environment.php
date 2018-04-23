@@ -1,8 +1,7 @@
 <?php
 include('../layout/nav.php');
-$results=querydb("SELECT * from apps order by name asc ");
+$results=querydb("SELECT * from markets_environments order by name asc ");
 ?>
-
 <div class="right-sidebar-backdrop"></div>
 <!-- Main Content -->
 			<div class="page-wrapper">
@@ -11,7 +10,7 @@ $results=querydb("SELECT * from apps order by name asc ");
 					<!-- Title -->
 					<div class="row heading-bg">
 						<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-							<h5 class="txt-dark">Apps</h5>
+							<h5 class="txt-dark">Market Environments</h5>
 						</div>
 					
 						<!-- Breadcrumb -->
@@ -19,7 +18,7 @@ $results=querydb("SELECT * from apps order by name asc ");
 							<ol class="breadcrumb">
 								<li><a href="index.php">Dashboard</a></li>
 								<li><a href="../admin/infrastructure.php"><span>Infrastructure</span></a></li>
-								<li class="active"><span>Apps</span></li>
+								<li class="active"><span>Market Environments</span></li>
 							</ol>
 						</div>
 						<!-- /Breadcrumb -->
@@ -28,7 +27,7 @@ $results=querydb("SELECT * from apps order by name asc ");
 				
 				<!-- Row -->
 				<div class="row">
-					<div class="col-sm-8">
+					<div class="col-sm-12">
 						<div class="panel panel-default card-view">
 							<div class="panel-wrapper collapse in">
 								<div class="panel-body">
@@ -39,6 +38,8 @@ $results=querydb("SELECT * from apps order by name asc ");
 													<tr>
 														<th>No</th>
 														<th>Name</th>
+														<th>Environment</th>
+														<th>Market</th>
 														<th>Edit</th>
 													</tr>
 												</thead>
@@ -55,7 +56,9 @@ $results=querydb("SELECT * from apps order by name asc ");
 
 														<td><?php echo $no++ ?></td>
 														<td><?php echo $row['name']?></td>
-														<td><a href="<?php $exec->editClass('apps',$id)?>" ><i class="fa fa-edit" onclick="editUser"></i> Edit</a>  </td>
+														<td><?php echo $row['marketid']?></td>
+														<td><?php echo $row['environmentid']?></td>
+														<td><a href="<?php $exec->editClass('marketenvironment',$id)?>" ><i class="fa fa-edit" onclick="editUser"></i> Edit</a>  </td>
 														<!-- <td><a href="../controllers/updatecontroller.php?id=<?php echo $row['id']?>&&action=deactivatemarketenvironment"  ><i class="fa fa-trash"></i> De-Activate</a>  </td> -->
 													</tr>
 

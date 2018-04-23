@@ -42,10 +42,10 @@
 						<span class="brand-text">Mo-De CMDB</span>
 					</a>
 				</div>
-				<!-- <div class="form-group mb-0 pull-right">
+				<div class="form-group mb-0 pull-right">
 					<span class="inline-block pr-10">Don't have an account?</span>
 					<a class="inline-block btn btn-success  btn-rounded btn-outline" href="register.php">Sign Up</a>
-				</div> -->
+				</div> 
 				<div class="clearfix"></div>
 			</header>
 			

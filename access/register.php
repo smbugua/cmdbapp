@@ -84,10 +84,10 @@
 													<input type="password" class="form-control" name="password2" required="" id="password2" placeholder="Enter pwd" onkeyup="passwordchecker()">
 												</div>
 												<div class="form-group">
-													<div class="checkbox checkbox-primary pr-10 pull-left">
+													<!-- <div class="checkbox checkbox-primary pr-10 pull-left">
 														<input id="checkbox_2" required="" type="checkbox">
 														<label for="checkbox_2"> I agree to all <span class="txt-primary">Terms</span></label>
-													</div>
+													</div> -->
 													<div class="clearfix"></div>
 												</div>
 												<div class="form-group text-center">

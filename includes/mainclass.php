@@ -32,7 +32,7 @@ class MainClass
 	// desc apps
 	function addApp($name)
 	{
-		querydb("INSERT INTO apps(name)VALUES('$names')");
+		querydb("INSERT INTO apps(name)VALUES('$name')");
 
 	}
 
