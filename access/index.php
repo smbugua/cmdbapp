@@ -42,10 +42,10 @@
 						<span class="brand-text">Mo-De CMDB</span>
 					</a>
 				</div>
-				<div class="form-group mb-0 pull-right">
+				<!-- <div class="form-group mb-0 pull-right">
 					<span class="inline-block pr-10">Don't have an account?</span>
 					<a class="inline-block btn btn-success  btn-rounded btn-outline" href="register.php">Sign Up</a>
-				</div>
+				</div> -->
 				<div class="clearfix"></div>
 			</header>
 			
@@ -70,16 +70,16 @@
 												</div>
 												<div class="form-group">
 													<label class="pull-left control-label mb-10" for="exampleInputpwd_2" >Password</label>
-													<a class="capitalize-font txt-primary block mb-10 pull-right font-12" href="resetpassword.php">forgot password ?</a>
 													<div class="clearfix"></div>
 													<input type="password" class="form-control" required="" name="password" id="exampleInputpwd_2" placeholder="Enter pwd">
 												</div>
 												
 												<div class="form-group">
-													<div class="checkbox checkbox-primary pr-10 pull-left">
+													<a class="capitalize-font txt-primary block mb-10 pull-right font-12" href="resetpassword.php">forgot password ?</a>
+													<!-- <div class="checkbox checkbox-primary pr-10 pull-left">
 														<input id="checkbox_2" required="" type="checkbox">
 														<label for="checkbox_2"> Keep me logged in</label>
-													</div>
+													</div> -->
 													<div class="clearfix"></div>
 												</div>
 												<div class="form-group text-center">
