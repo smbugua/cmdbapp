@@ -1,12 +1,5 @@
 <?php
-require_once('controllers/usercontrolclass.php');
+//require_once('controllers/usercontrolclass.php');
 
-$exe=new MainClass();if(!$mail->send()) 
-			{
-			    echo "Mailer Error: " . $mail->ErrorInfo;
-			} 
-			else 
-			{
-			    echo "Message has been sent successfully";
-			}
-			
+$tokrn=rand(666666,99999999);
+echo md5($tokrn);

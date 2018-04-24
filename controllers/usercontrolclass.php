@@ -1,5 +1,5 @@
 <?php
-require_once('../includes/auth.php');
+require_once('../includes/dash_functions.php');
 	//get signup action
 	if ($_GET['action']=="signup") {
 		# code...
@@ -26,55 +26,28 @@ require_once('../includes/auth.php');
 		//session_start();
 			$_SESSION['loggedin']=FALSE;
 			header("Location: ../access/index.php");
-	}elseif ($_GET['action']=="adduser") {
+	}
+}elseif ($_GET['action']=="adduser") {
 			$username=$_POST['username'];
 			$name=$_POST['name'];
 			$email=$_POST['email'];
-			$roleid=$_POST['id'];
+			$roleid=$_POST['roles'];
 			$exec->addUsers($name,$username,$email);
 			$lastid=lastid();
 			$exec->addUserRole($lastid,$roleid);
 			header("Location: ../admin/view_users.php");			
 			//SEND MAIL 
-			$mail = new PHPMailer;
-
-			//Enable SMTP debugging. 
-			$mail->SMTPDebug = 3;                               
-			//Set PHPMailer to use SMTP.
-			$mail->isSMTP();            
-			//Set SMTP host name                          
-			$mail->Host = "smtp.gmail.com";
-			//Set this to true if SMTP host requires authentication to send email
-			$mail->SMTPAuth = true;                          
-			//Provide username and password     
-			$mail->Username = "maryemm18@gmail.com";                 
-			$mail->Password = "hotboybill09";                           
-			//If SMTP requires TLS encryption then set it
-			$mail->SMTPSecure = "tls";                           
-			//Set TCP port to connect to 
-			$mail->Port = 587;                                   
-
-			$mail->From = "maryemm18@gmail.com";
-			$mail->FromName = "Mary Mueni";
-
-			$mail->addAddress($email, $name);
-
-			$mail->isHTML(true);
-
-			$mail->Subject = "Subject Text";
-			$mail->Body = "<i>Mail body in HTML</i>";
-			$mail->AltBody = "This is the plain text version of the email content";
-
-			if(!$mail->send()) 
-			{
-			    echo "Mailer Error: " . $mail->ErrorInfo;
-			} 
-			else 
-			{
-			    echo "Message has been sent successfully";
-			}
+			$subject  = 'Activating CMDB';
+			$message  = 'Hi'. $name.'Activate your CMDB account by clicking on this link. http://localhost/cmdb/access/setpassword.php?token= ';
+			$headers  = 'From: maryemm18@gmail.com' . "\r\n" .
+			            'MIME-Version: 1.0' . "\r\n" .
+			            'Content-type: text/html; charset=utf-8';
+			if(mail($email, $subject, $message, $headers))
+			    echo "Email sent";
+			else
+			    echo "Email sending failed";
 		}
 
 	
 
-	}
+	
