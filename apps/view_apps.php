@@ -75,3 +75,4 @@ $results=querydb("SELECT * from apps order by name asc ");
 <?php include('../layout/footer.php');?>
 
 </div>
+

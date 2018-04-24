@@ -56,3 +56,4 @@ include('../layout/nav.php');
 						</div>
 					</div>
 						<?php include_once('../layout/footer.php');?>
+						

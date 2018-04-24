@@ -57,3 +57,4 @@ $row=processquery("SELECT * from apps where id='$id' ");
 							</div>
 						</div>
 						<?php include_once('../layout/footer.php');?>
+						

@@ -138,3 +138,4 @@ $row=processquery("SELECT * from nodes where id='$id' ");
 		 
 		<!-- Bootstrap Switch JavaScript -->
 		<script src="../vendors/bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+		

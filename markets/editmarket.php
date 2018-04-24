@@ -66,3 +66,4 @@ $row=processquery("SELECT * from markets where id='$id' ");
 							</div>
 						</div>
 						<?php include_once('../layout/footer.php');?>
+						

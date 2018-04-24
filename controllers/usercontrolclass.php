@@ -5,18 +5,19 @@ require_once('../includes/auth.php');
 		# code...
 		$username=$_POST['username'];
 		$email=$_POST['email'];
-		$password=md5($_POST['password']);
-/*		$password=password_hash(($_POST['password']), PASSWORD_DEFAULT);*/
-		querydb("INSERT INTO users (username,email,hashpassword)VALUES('$username','$email','$password')");
+		$password=$_POST['password'];
+		$hash=password_hash($password, PASSWORD_DEFAULT);
+		querydb("INSERT INTO users (username,email,hashpassword)VALUES('$username','$email','$hash')");
 		header("Location: ../access/index.php");
 	}elseif ($_GET['action']=="signin") {
 		$email=$_POST['email'];
-		$password=md5($_POST['password']);
-		/*$password=password_hash(($_POST['password']), PASSWORD_DEFAULT);*/
-		$u=querydb("SELECT email,username,id,hashpassword from users where email='$email' and hashpassword='$password' ");
+		$password=$_POST['password'];
+		$hash=password_hash($password, PASSWORD_DEFAULT);
+		$u=querydb("SELECT email,username,id,hashpassword from users where email='$email' ");
+		$isPasswordCorrect = password_verify($password, $hash);
 		$userq=mysqli_fetch_array($u,MYSQLI_ASSOC);
-		$no=numquery("SELECT email,username,id,hashpassword from users where email='$email' and hashpassword='$password' ");
-		if ($no>=1) {
+		$no=numquery("SELECT email,username,id,hashpassword from users where email='$email'");
+		if ($no>=1 && $isPasswordCorrect) {
 		session_start();
 		$_SESSION['user']=$userq['username'];
 		$_SESSION['loggedin']="TRUE";
@@ -27,6 +28,6 @@ require_once('../includes/auth.php');
 			header("Location: ../access/index.php");
 		}
 
-		
+	
 
 	}

@@ -120,3 +120,4 @@ $markets=querydb("SELECT * FROM markets");
 		 
 		<!-- Bootstrap Switch JavaScript -->
 		<script src="../vendors/bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+		
