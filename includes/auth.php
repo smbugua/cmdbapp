@@ -51,7 +51,11 @@ function numquery($query)
     return $result;
     
 }
-
+function lastid(){
+    $con=$GLOBALS['con'];
+    $id=mysqli_insert_id($con);
+    return $id;
+}
 function longdate($timestamp)
 {
 return date("l F jS Y", $timestamp);

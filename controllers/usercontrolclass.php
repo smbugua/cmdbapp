@@ -26,6 +26,53 @@ require_once('../includes/auth.php');
 		//session_start();
 			$_SESSION['loggedin']=FALSE;
 			header("Location: ../access/index.php");
+	}elseif ($_GET['action']=="adduser") {
+			$username=$_POST['username'];
+			$name=$_POST['name'];
+			$email=$_POST['email'];
+			$roleid=$_POST['id'];
+			$exec->addUsers($name,$username,$email);
+			$lastid=lastid();
+			$exec->addUserRole($lastid,$roleid);
+			header("Location: ../admin/view_users.php");			
+			//SEND MAIL 
+			$mail = new PHPMailer;
+
+			//Enable SMTP debugging. 
+			$mail->SMTPDebug = 3;                               
+			//Set PHPMailer to use SMTP.
+			$mail->isSMTP();            
+			//Set SMTP host name                          
+			$mail->Host = "smtp.gmail.com";
+			//Set this to true if SMTP host requires authentication to send email
+			$mail->SMTPAuth = true;                          
+			//Provide username and password     
+			$mail->Username = "maryemm18@gmail.com";                 
+			$mail->Password = "hotboybill09";                           
+			//If SMTP requires TLS encryption then set it
+			$mail->SMTPSecure = "tls";                           
+			//Set TCP port to connect to 
+			$mail->Port = 587;                                   
+
+			$mail->From = "maryemm18@gmail.com";
+			$mail->FromName = "Mary Mueni";
+
+			$mail->addAddress($email, $name);
+
+			$mail->isHTML(true);
+
+			$mail->Subject = "Subject Text";
+			$mail->Body = "<i>Mail body in HTML</i>";
+			$mail->AltBody = "This is the plain text version of the email content";
+
+			if(!$mail->send()) 
+			{
+			    echo "Mailer Error: " . $mail->ErrorInfo;
+			} 
+			else 
+			{
+			    echo "Message has been sent successfully";
+			}
 		}
 
 	

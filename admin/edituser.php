@@ -1,9 +1,9 @@
 <?php
 include('../layout/nav.php');
 $id=$_REQUEST['id'];
-$row=processquery("SELECT * from markets_environments where id='$id' ");
-$envs=querydb("SELECT * FROM environments");
-$markets=querydb("SELECT * FROM markets");
+$row=processquery("SELECT * from users where id='$id' ");
+$roles=querydb("SELECT * FROM roles");
+$user_role=querydb("SELECT * FROM user_role");
 ?>
 	
 		
@@ -22,15 +22,15 @@ $markets=querydb("SELECT * FROM markets");
 					<!-- Title -->
 					<div class="row heading-bg">
 						<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-							<h5 class="txt-dark">Edit Market Environment</h5>
+							<h5 class="txt-dark">Edit User</h5>
 						</div>
 					
 						<!-- Breadcrumb -->
 						<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 							<ol class="breadcrumb">
 								<li><a href="index.php">Dashboard</a></li>
-								<li><a href="#"><span>Infrastructure</span></a></li>
-								<li class="active"><span>Edit Market Environment</span></li>
+								<li><a href="#"><span>Admin</span></a></li>
+								<li class="active"><span>Edit User</span></li>
 							</ol>
 						</div>
 						<!-- /Breadcrumb -->
@@ -46,7 +46,7 @@ $markets=querydb("SELECT * FROM markets");
 							<div class="panel panel-default card-view">
 								<div class="panel-heading">
 									<div class="pull-left">
-										<h6 class="panel-title txt-dark">Edit Environment</h6>
+										<h6 class="panel-title txt-dark">Edit User</h6>
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -54,17 +54,26 @@ $markets=querydb("SELECT * FROM markets");
 									<div class="panel-body">
 										<!-- <p class="text-muted"> Add Environment eg: KE-PROD,DU-TEST</p> -->
 										<div class="form-wrap mt-40">
-											<form method="post" action="<?php $exec->editObject('editmarketenvironment',$id)?>"">
+											<form method="post" action="<?php $exec->editObject('edituser',$id)?>"">
 												<div class="form-group">
 													<label class="control-label mb-10">Name</label>
 													<input type="text" name="name" class="form-control" required="" value="<?php echo $row['name']?>">
 												</div>
 												<div class="form-group">
-													<label class="control-label mb-10">Environment</label>
-													<select class="form-control select2" name="environment" >
+													<label class="control-label mb-10">Username</label>
+													<input type="text" name="username" class="form-control" required="" value="<?php echo $row['username']?>">
+												</div>		
+												<div class="form-group">
+													<label class="control-label mb-10">Email</label>
+													<input type="text" name="email" class="form-control" required="" value="<?php echo $row['email']?>">
+												</div>		
+
+												<div class="form-group">
+													<label class="control-label mb-10">Roles</label>
+													<select class="form-control select2" name="roles">
 														<option>Select</option>
-														<optgroup label="Environments">
-															<?php while($row=mysqli_fetch_array($envs,MYSQLI_ASSOC)){?>
+														<optgroup label="Roles">
+															<?php while($row=mysqli_fetch_array($roles,MYSQLI_ASSOC)){?>
 															<option value="<?php echo $row['id']?>"><?php echo $row['name']?></option>
 															<?php }?>
 														</optgroup>
@@ -72,19 +81,7 @@ $markets=querydb("SELECT * FROM markets");
 														
 													</select>
 												</div>
-												<div class="form-group">
-													<label class="control-label mb-10">Market</label>
-													<select class="form-control select2" name="market" >
-														<option>Select</option>
-														<optgroup label="Markets">
-															<?php while($row=mysqli_fetch_array($markets,MYSQLI_ASSOC)){?>
-															<option value="<?php echo $row['id']?>"><?php echo $row['market']?></option>
-															<?php }?>
-														</optgroup>
-														
-														
-													</select>
-												</div>
+
 
 														<button type="submit" class="btn btn-success mr-10" name="addmarket">Edit</button>
 												</div>	

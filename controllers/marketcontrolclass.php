@@ -48,6 +48,16 @@ if ($_GET['action']=="addmarket"){
 
 	}
 
+	elseif ($_GET['action']=="addUsers") {
+		$username=$_POST['username'];
+		$name=$_POST['name'];
+		$email=$_POST['email'];
+		$exec->addUsers($name, $username, $email);
+		header("Location: ../admin/view_users.php");
+
+	}
+
+
 	elseif ($_GET['action']=="edit") {
 		$marketname=$_POST['marketname'];
 		$marketabbreviation=$_POST['marketabbreviation'];

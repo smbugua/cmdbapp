@@ -50,8 +50,8 @@ class MainClass
 		querydb("INSERT INTO (name)VALUES('$name')");
 	}
 	//
-	function addUsers($name,$username,$email,$pass){
-		querydb("INSERT INTO users(name,username,email,hashpassword)VALUES('$name','$username','$email','$pass')");
+	function addUsers($name,$username,$email){
+		querydb("INSERT INTO users(name,username,email,hashpassword)VALUES('$name','$username','$email','password')");
 	}
 
 

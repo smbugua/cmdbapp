@@ -45,6 +45,18 @@ else if ($_GET['action']=="editapps") {
 	header("Location: ../apps/view_apps.php");
 }
 
+else if ($_GET['action']=="edituser") {
+	$username=$_POST['username'];
+	$name=$_POST['name'];
+	$email=$_POST['email'];
+	$role=$_POST['role'];
+	$exec->updateTable('users','name',$name,$id);
+	$exec->updateTable('users','username',$username,$id);
+	$exec->updateTable('users','email',$email,$id);
+	$exec->updateTable('roles','role',$role,$id);
+	header("Location: ../admin/view_users.php");
+}
+
 else if ($_GET['action']=="deactivatemarket") {
 	$id=$_REQUEST['id'];
 	$exec->updateTable('markets','status','1',$id);
@@ -55,6 +67,12 @@ else if ($_GET['action']=="deactivatenode") {
 	$id=$_REQUEST['id'];
 	$exec->updateTable('nodes','status','1',$id);
 	header("Location: ../nodes/view_nodes.php");
+}
+
+else if ($_GET['action']=="deactivateuser") {
+	$id=$_REQUEST['id'];
+	$exec->updateTable('users','status','1',$id);
+	header("Location: ../admin/view_users.php");
 }
 
 else if ($_GET['action']=="activatemarket") {
@@ -68,6 +86,13 @@ else if ($_GET['action']=="activatenode") {
 	$exec->updateTable('nodes','status','0',$id);
 	header("Location: ../nodes/view_nodes.php");
 }
+
+else if ($_GET['action']=="activateuser") {
+	$id=$_REQUEST['id'];
+	$exec->updateTable('users','status','0',$id);
+	header("Location: ../admin/view_users.php");
+}
+
 
 ob_clean() ;
 ob_end_clean();	
