@@ -45,4 +45,3 @@ return  array('market' => $result['market'] ,
 				'mkt' => $result['mkt'],
 				'id' => $result['id'] );
 }
-
