@@ -3,9 +3,9 @@
 include('../layout/nav.php');
 $market=$_GET['market'];
 $mkt=mysqli_fetch_array(querydb("SELECT name from markets_environments where marketid='$market'"));
-$query=querydb("SELECT  me.name as marketenvironmentname , p.name as parametername ,mep.parametervalue as pvalue from markets_environments me inner join market_environment_parameters mep on mep.marketenvironmentid=me.id inner join parameters p on p.id=mep.parameterid where me.id='$market'  ");
+$query=querydb("SELECT mep.id as mepid ,me.name as marketenvironmentname , p.name as parametername ,mep.parametervalue as pvalue ,me.datemodifed as datemodified from markets_environments me inner join market_environment_parameters mep on mep.marketenvironmentid=me.id inner join parameters p on p.id=mep.parameterid where me.id='$market'");
 $query2=querydb("SELECT  p.id as pid ,p.name as pname  FROM parameters p where p.id not in (SELECT mep.parameterid  FROM market_environment_parameters mep where mep.marketenvironmentid='$market')");
-$m=mysqli_fetch_array($query,MYSQLI_ASSOC);
+$no=1;
 
 ?>
 
@@ -58,7 +58,7 @@ $m=mysqli_fetch_array($query,MYSQLI_ASSOC);
 																	<h4 class="modal-title">Add Market Parameter</h4>
 																</div>
 																<div class="modal-body">
-																	<form role="form" class="form-horizontal" method="post" action="../controllers/marketcontrolclass.php?action=addmarketparamter&&id=<?php echo $market?>">
+																	<form role="form" class="form-horizontal" method="post" action="../controllers/marketcontrolclass.php?action=addmarketparameter&&id=<?php echo $market?>">
 																		<div class="form-group">
 																			<label class="col-lg-2 control-label">Parameter Name</label>
 																			<div class="col-lg-10">
@@ -152,24 +152,23 @@ $m=mysqli_fetch_array($query,MYSQLI_ASSOC);
 																		<th>PARAMETER NAME</th>
 																		<th>PARAMETER VALUE</th>
 																		<th>DATE ADDED</th>
+																		<th>Edit</th>
 																	</THEAD>
 																	<tbody>
 																		<?php 
-																		$no=1;
 																		while($p=mysqli_fetch_array($query,MYSQLI_ASSOC)){?>
 																		<tr class="unread">
 																			<td class="inbox-small-cells">
-																				<?php echo $no ?>
+																				<?php echo $no++ ?>
 																				</div>
 																				
 																			</td>
 																			<td class="view-message  dont-show"><?php echo $p['parametername']?><span class="label label-warning pull-right"></span></td>
-																			<td class="view-message "><?php echo $p['parametervalue']?></td>
-																			<td class="view-message  text-right">
-																				<span  class="time-chat-history inline-block"><?php echo $p['datemodified']?></span>
-																			</td>
+																			<td class="view-message "><?php echo $p['pvalue']?></td>
+																			<td class="view-message  "><?php echo $p['datemodified']?>
+																			<td class="view-message  "><a href="#?id=<?php echo $p['mepid']?>"><i class="fa fa-edit"> Edit</i></a></td>
 																		</tr>
-																		<?php } $no++?>
+																		<?php } ?>
 																		
 																	</tbody>
 																</table>

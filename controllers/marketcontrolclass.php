@@ -64,6 +64,12 @@ if ($_GET['action']=="addmarket"){
 		$exec->edit($name);
 		header("Location: ../markets/view_market.php");
 
+	}elseif ($_GET['action']=="addmarketparameter") {
+		$parameterid=$_POST['parameterid'];
+		$parametervalue=$_POST['parametervalue'];
+		$id=$_GET['id'];
+		$exec->addMarketParameter($id,$parameterid,$parametervalue);
+		header("Location: ../mkt_environment_parameters/market_parameters.php?market=$id");
 	}
 
 ?>
