@@ -1,10 +1,10 @@
 
 <?php
 include('../layout/nav.php');
-$market=$_POST['market'];
+$market=$_GET['market'];
 $mkt=mysqli_fetch_array(querydb("SELECT name from markets_environments where marketid='$market'"));
-$query=querydb("SELECT  me.name as marketenvironmentname , p.name as parametername ,mep.parametervalue as pvalue from markets_environments me inner join market_environment_parameters mep on mep.marketenvironmentid=me.id inner join parameters p on p.id=mep.parameterid where me.marketid='$market'  ");
-$query2=querydb("SELECT  p.id as pid ,p.name as pname  FROM parameters p where p.id not in (SELECT mep.parameterid  FROM market_environment_parameters mep)");
+$query=querydb("SELECT  me.name as marketenvironmentname , p.name as parametername ,mep.parametervalue as pvalue from markets_environments me inner join market_environment_parameters mep on mep.marketenvironmentid=me.id inner join parameters p on p.id=mep.parameterid where me.id='$market'  ");
+$query2=querydb("SELECT  p.id as pid ,p.name as pname  FROM parameters p where p.id not in (SELECT mep.parameterid  FROM market_environment_parameters mep where mep.marketenvironmentid='$market')");
 $m=mysqli_fetch_array($query,MYSQLI_ASSOC);
 
 ?>
@@ -58,7 +58,7 @@ $m=mysqli_fetch_array($query,MYSQLI_ASSOC);
 																	<h4 class="modal-title">Add Market Parameter</h4>
 																</div>
 																<div class="modal-body">
-																	<form role="form" class="form-horizontal" method="post" action="">
+																	<form role="form" class="form-horizontal" method="post" action="../controllers/marketcontrolclass.php?action=addmarketparamter&&id=<?php echo $market?>">
 																		<div class="form-group">
 																			<label class="col-lg-2 control-label">Parameter Name</label>
 																			<div class="col-lg-10">

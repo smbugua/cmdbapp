@@ -75,5 +75,7 @@ class MainClass
 	function editClass($object,$id){
 		echo ("edit$object.php?id=$id");
 	}
-	
+	function capturePost(){
+		
+	}
 }

@@ -1,7 +1,7 @@
 <?php
 include('../layout/nav.php');
 $envs=querydb("SELECT * FROM environments");
-$markets=querydb("SELECT * FROM markets");
+$markets=querydb("SELECT * FROM markets_environments");
 
 ?>
 
@@ -53,7 +53,7 @@ $markets=querydb("SELECT * FROM markets");
 								<div class="panel-wrapper collapse in">
 									<div class="panel-body">
 										<div class="form-wrap mt-40">
-											<form method="post" action="market_parameters.php"> 
+											<form method="get" action="market_parameters.php"> 
 												
 												<div class="form-group">
 													<label class="control-label mb-10">Market</label>
@@ -61,7 +61,7 @@ $markets=querydb("SELECT * FROM markets");
 														<option>Select</option>
 														<!--<optgroup label="Markets"> -->
 															<?php while($row=mysqli_fetch_array($markets,MYSQLI_ASSOC)){?>
-															<option value="<?php echo $row['id']?>"><?php echo $row['market']?></option>
+															<option value="<?php echo $row['id']?>"><?php echo $row['name']?></option>
 															<?php }?>
 														</optgroup>
 														
@@ -69,7 +69,7 @@ $markets=querydb("SELECT * FROM markets");
 													</select>
 												</div>
 
-														<button type="submit" class="btn btn-success mr-10" name="addmarket">View</button>
+														<button type="submit" class="btn btn-success mr-10" >View</button>
 												</div>	
 												
 												
