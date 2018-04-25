@@ -108,7 +108,7 @@ include('../layout/nav.php');
 											<div class="row">
 												<div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left">
 													<span class="txt-dark block counter"><span class="counter-anim"><?php   ?></span></span>
-													<span class="weight-500 uppercase-font block font-13">Markets</span>
+													<span class="weight-500 uppercase-font block font-13">DEPLOYMENTS</span>
 												</div>
 												<div class="col-xs-6 text-center  pl-0 pr-0 data-wrap-right">
 													<i class="icon-user-following data-right-rep-icon txt-light-grey"></i>
@@ -129,7 +129,7 @@ include('../layout/nav.php');
 											<div class="row">
 												<div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left">
 													<span class="txt-dark block counter"><span class="counter-anim"><?php  ?></span></span>
-													<span class="weight-500 uppercase-font block">Environments</span>
+													<span class="weight-500 uppercase-font block">Versions</span>
 												</div>
 												<div class="col-xs-6 text-center  pl-0 pr-0 pt-25  data-wrap-right">
 													<div class="sp-small-chart" id="sparkline_4" ></div>
@@ -151,7 +151,7 @@ include('../layout/nav.php');
 											<div class="row">
 												<div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left">
 													<span class="txt-dark block counter"><span class="counter-anim"><?php ?></span></span>
-													<span class="weight-500 uppercase-font block">Nodes</span>
+													<span class="weight-500 uppercase-font block">Successful</span>
 												</div>
 												<div class="col-xs-6 text-center  pl-0 pr-0 data-wrap-right">
 													<i class="icon-control-rewind data-right-rep-icon txt-light-grey"></i>
@@ -172,7 +172,7 @@ include('../layout/nav.php');
 											<div class="row">
 												<div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left">
 													<span class="txt-dark block counter"><span class="counter-anim"><?php  echo get_apps()?></span></span>
-													<span class="weight-500 uppercase-font block">Applications</span>
+													<span class="weight-500 uppercase-font block">Rollbacks</span>
 												</div>
 												<div class="col-xs-6 text-center  pl-0 pr-0 data-wrap-right">
 													<i class="icon-layers data-right-rep-icon txt-light-grey"></i>
@@ -185,10 +185,63 @@ include('../layout/nav.php');
 						</div>
 					</div>
 				</div>
+
+					<div class="row">
+						<div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                        <div class="panel panel-default card-view panel-refresh">
+							<div class="refresh-container">
+								<div class="la-anim-1"></div>
+							</div>
+							<div class="panel-heading">
+								<div class="pull-left">
+									<h6 class="panel-title txt-dark">Actions</h6>
+								</div>
+								<div class="pull-right">
+									<a href="#" class="pull-left inline-block refresh mr-15">
+										<i class="zmdi zmdi-replay"></i>
+									</a>
+									<a href="#" class="pull-left inline-block full-screen mr-15">
+										<i class="zmdi zmdi-fullscreen"></i>
+									</a>
+									<div class="pull-left inline-block dropdown">
+									
+									</div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-wrapper collapse in">
+                                <div class="panel-body">
+									<ul>
+										<a href="../markets/create_market.php" class=" btn btn-info btn-outline btn-rounded">Version</a> 
+										<a href="../environments/create_environment.php" class=" btn btn-primary btn-outline btn-rounded">Release</a>  
+										<a href="../nodes/create_node.php" class=" btn btn-success btn-outline btn-rounded">Files</a> 
+										<a href="../apps/create_app.php" class=" btn btn-danger btn-outline btn-rounded">Test Nodes</a> 
+									</ul>
+									<ul class="flex-stat mt-40">
+										<li>
+											<span class="block">Users</span>
+											<span class="block txt-dark weight-500 font-18"><span class="counter-anim"><?php echo get_users()?></span></span>
+										</li>
+										<li>
+											<span class="block">Monthly Users</span>
+											<span class="block txt-dark weight-500 font-18"><span class="counter-anim">1,23,432</span></span>
+										</li>
+										<li>
+											<span class="block">Trend</span>
+											<span class="block">
+												<i class="zmdi zmdi-trending-up txt-success font-24"></i>
+											</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+                        </div>
+                    </div>
+                    </div>
 				<!-- /Row -->
 
 <div class="row">
-						<div class="col-md-6">
+						<div class="col-md-10">
 							<div class="panel panel-default card-view">
 								<div class="panel-heading">
 									<div class="pull-left">
