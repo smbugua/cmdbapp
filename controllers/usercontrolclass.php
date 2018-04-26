@@ -38,8 +38,8 @@ require_once('../includes/dash_functions.php');
 			header("Location: ../admin/view_users.php");			
 			//SEND MAIL 
 			$subject  = 'Activating CMDB';
-			$message  = 'Hi'. $name.'Activate your CMDB account by clicking on this link. http://localhost/cmdb/access/setpassword.php?token= ';
-			$headers  = 'From: maryemm18@gmail.com' . "\r\n" .
+			$message  = 'Hi '. $name.' Activate your CMDB account by clicking on this link. http://localhost/cmdb/access/setup_password.php';
+			$headers  = 'From: adamayaapparell@gmail.com' . "\r\n" .
 			            'MIME-Version: 1.0' . "\r\n" .
 			            'Content-type: text/html; charset=utf-8';
 			if(mail($email, $subject, $message, $headers))
@@ -48,6 +48,12 @@ require_once('../includes/dash_functions.php');
 			    echo "Email sending failed";
 		}
 
-	
+elseif ($_GET['action']=="setuppassword") {
+		# code...
+		$password=$_POST['password'];
+		$hash=password_hash($password, PASSWORD_DEFAULT);
+		querydb("INSERT INTO users (hashpassword)VALUES('$hash')");
+		header("Location: ../access/index.php");
+	}	
 
 	

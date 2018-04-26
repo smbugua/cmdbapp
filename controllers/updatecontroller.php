@@ -46,15 +46,23 @@ else if ($_GET['action']=="editapps") {
 }
 
 else if ($_GET['action']=="edituser") {
-	$username=$_POST['username'];
 	$name=$_POST['name'];
+	$username=$_POST['username'];
 	$email=$_POST['email'];
 	$role=$_POST['role'];
-	$exec->updateTable('users','name',$name,$id);
-	$exec->updateTable('users','username',$username,$id);
-	$exec->updateTable('users','email',$email,$id);
-	$exec->updateTable('roles','role',$role,$id);
+	$id=$_REQUEST['id'];
+	$exec->updateTable('user_role','roleid',$role,$id);
 	header("Location: ../admin/view_users.php");
+}
+
+else if ($_GET['action']=="editmarketparameters") {
+	$parameterid=$_POST['parameterid'];
+	$parametervalue=$_POST['parametervalue'];
+	$id=$_REQUEST['id'];
+	$market=$_REQUEST['market'];
+	$exec->updateTable('market_environment_parameters','parameterid',$parameterid,$id);
+	$exec->updateTable('market_environment_parameters','parametervalue',$parametervalue,$id);
+	header("Location: ../mkt_environment_parameters/market_parameters.php?market=$market");
 }
 
 else if ($_GET['action']=="deactivatemarket") {

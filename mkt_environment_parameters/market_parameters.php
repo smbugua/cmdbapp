@@ -166,7 +166,7 @@ $no=1;
 																			<td class="view-message  dont-show"><?php echo $p['parametername']?><span class="label label-warning pull-right"></span></td>
 																			<td class="view-message "><?php echo $p['pvalue']?></td>
 																			<td class="view-message  "><?php echo $p['datemodified']?>
-																			<td class="view-message  "><a href="#?id=<?php echo $p['mepid']?>"><i class="fa fa-edit"> Edit</i></a></td>
+																			<td class="view-message  "><a href="editmarketparameters.php?id=<?php echo $p['mepid']?>&&market=<?php echo $market?>"><i class="fa fa-edit"> Edit</i></a></td>
 																		</tr>
 																		<?php } ?>
 																		

@@ -29,8 +29,8 @@ $markets=querydb("SELECT * FROM markets_environments");
 						<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 							<ol class="breadcrumb">
 								<li><a href="index.php">Dashboard</a></li>
-								<li><a href="#"><span>Infrastructure</span></a></li>
-								<li class="active"><span>Create Environment</span></li>
+								<li><a href="#"><span>Market parameters</span></a></li>
+								<li class="active"><span>View market parameters</span></li>
 							</ol>
 						</div>
 						<!-- /Breadcrumb -->

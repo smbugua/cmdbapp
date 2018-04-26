@@ -3,7 +3,7 @@ include('../layout/nav.php');
 $id=$_REQUEST['id'];
 $row=processquery("SELECT * from users where id='$id' ");
 $roles=querydb("SELECT * FROM roles");
-$user_role=querydb("SELECT * FROM user_role");
+$user_role=querydb("SELECT * FROM user_role where userid='$id'");
 ?>
 	
 		
@@ -57,20 +57,20 @@ $user_role=querydb("SELECT * FROM user_role");
 											<form method="post" action="<?php $exec->editObject('edituser',$id)?>"">
 												<div class="form-group">
 													<label class="control-label mb-10">Name</label>
-													<input type="text" name="name" class="form-control" required="" value="<?php echo $row['name']?>">
+													<input type="text" name="name" class="form-control" readonly required="" value="<?php echo $row['name']?>">
 												</div>
 												<div class="form-group">
 													<label class="control-label mb-10">Username</label>
-													<input type="text" name="username" class="form-control" required="" value="<?php echo $row['username']?>">
+													<input type="text" name="username" class="form-control" readonly required="" value="<?php echo $row['username']?>">
 												</div>		
 												<div class="form-group">
 													<label class="control-label mb-10">Email</label>
-													<input type="text" name="email" class="form-control" required="" value="<?php echo $row['email']?>">
+													<input type="text" name="email" class="form-control" readonly required="" value="<?php echo $row['email']?>">
 												</div>		
 
 												<div class="form-group">
 													<label class="control-label mb-10">Roles</label>
-													<select class="form-control select2" name="roles">
+													<select class="form-control select2" name="role">
 														<option>Select</option>
 														<optgroup label="Roles">
 															<?php while($row=mysqli_fetch_array($roles,MYSQLI_ASSOC)){?>
@@ -84,6 +84,7 @@ $user_role=querydb("SELECT * FROM user_role");
 
 
 														<button type="submit" class="btn btn-success mr-10" name="addmarket">Edit</button>
+														<button type="submit" class="btn btn-default" name="cancel">Cancel</button>
 												</div>	
 												
 												
