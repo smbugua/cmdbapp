@@ -212,7 +212,7 @@ include('../layout/nav.php');
 							<div class="panel-wrapper collapse in">
                                 <div class="panel-body">
 									<ul>
-										<a href="../markets/create_market.php" class=" btn btn-info btn-outline btn-rounded">Version</a> 
+										<a href="../versions/index.php" class=" btn btn-info btn-outline btn-rounded">Version</a> 
 										<a href="../environments/create_environment.php" class=" btn btn-primary btn-outline btn-rounded">Release</a>  
 										<a href="../nodes/create_node.php" class=" btn btn-success btn-outline btn-rounded">Files</a> 
 										<a href="../apps/create_app.php" class=" btn btn-danger btn-outline btn-rounded">Test Nodes</a> 

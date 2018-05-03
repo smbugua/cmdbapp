@@ -28,7 +28,19 @@ echo <<<Headerfunction
 	<link href="../dist/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="../dist/css/pe-icon-7-stoke.css" rel="stylesheet" type="text/css">
 	<link href="../dist/css/pe-icon-7-styles.css" rel="stylesheet" type="text/css">
-	
+			<link href="../vendors/bower_components/jquery-wizard.js/css/wizard.css" rel="stylesheet" type="text/css"/>
+		
+		<!-- jquery-steps css -->
+		<link rel="stylesheet" href="../vendors/bower_components/jquery.steps/demo/css/jquery.steps.css">
+		
+		
+		
+		<!-- Data table CSS -->
+		<link href="../vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+		
+		<!-- bootstrap-touchspin CSS -->
+		<link href="../vendors/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" type="text/css"/>
+
     <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.datatables.net/rss.xml">
 	<!-- Data table CSS -->
 	<link href="../vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
@@ -58,7 +70,7 @@ echo <<<Headerfunction
 		
 		<!-- multi-select CSS -->
 		<link href="../vendors/bower_components/multiselect/css/multi-select.css" rel="stylesheet" type="text/css"/>
-		
+		<link rel="stylesheet" href="../vendors/bower_components/summernote/dist/summernote.css" />
 	<!-- Custom CSS -->
 	<link href="../dist/css/style.css" rel="stylesheet" type="text/css">
 </head>
@@ -380,7 +392,8 @@ echo <<<Headerfunction
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    
+		<script src="../vendors/bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>		
+
 	<!-- Vector Maps JavaScript -->
     <script src="../vendors/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
     <script src="../vendors/vectormap/jquery-jvectormap-world-mill-en.js"></script>
@@ -437,7 +450,23 @@ echo <<<Headerfunction
 	<!-- Init JavaScript -->
 	<script src="../dist/js/init.js"></script>
 	<script src="../dist/js/dashboard2-data.js"></script>
-	
+
+		<!-- Form Wizard JavaScript -->
+		<script src="../vendors/bower_components/jquery.steps/build/jquery.steps.min.js"></script>
+		<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+
+				<!-- Form Wizard Data JavaScript -->
+		<script src="dist/js/form-wizard-data.js"></script>
+		
+		<!-- Data table JavaScript -->
+		<script src="../vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+		
+		<!-- Bootstrap Touchspin JavaScript -->
+		<script src="../vendors/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+		
+		<!-- Starrr JavaScript -->
+		<script src="dist/js/starrr.js"></script>
+
 	
 <?php
 Headerfunction;
