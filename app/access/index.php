@@ -43,8 +43,8 @@
 					</a>
 				</div>
 				<div class="form-group mb-0 pull-right">
-					<span class="inline-block pr-10">Don't have an account?</span>
-					<a class="inline-block btn btn-success  btn-rounded btn-outline" href="register.php">Sign Up</a>
+					<!--span class="inline-block pr-10">Don't have an account?</span>
+					<a class="inline-block btn btn-success  btn-rounded btn-outline" href="register.php">Sign Up</a-->
 				</div> 
 				<div class="clearfix"></div>
 			</header>
@@ -75,7 +75,7 @@
 												</div>
 												
 												<div class="form-group">
-													<a class="capitalize-font txt-primary block mb-10 pull-right font-12" href="resetpassword.php">forgot password ?</a>
+													<!--a class="capitalize-font txt-primary block mb-10 pull-right font-12" href="resetpassword.php">forgot password ?</a>
 													<!-- <div class="checkbox checkbox-primary pr-10 pull-left">
 														<input id="checkbox_2" required="" type="checkbox">
 														<label for="checkbox_2"> Keep me logged in</label>
