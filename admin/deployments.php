@@ -240,23 +240,7 @@ include('../layout/nav.php');
                     </div>
 				<!-- /Row -->
 
-<div class="row">
-						<div class="col-md-10">
-							<div class="panel panel-default card-view">
-								<div class="panel-heading">
-									<div class="pull-left">
-										<h6 class="panel-title txt-dark">Console</h6>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-								<div class="panel-wrapper collapse in">
-									<div class="panel-body">
-										<div class="summernote"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+
 
 				<script type="text/javascript">
 					function as(){
@@ -266,7 +250,7 @@ include('../layout/nav.php');
 				</script>
 
 
-
+<?php include('../layout/footer.php');?>
 		<!-- Summernote Plugin JavaScript -->
 		<script src="../vendors/bower_components/summernote/dist/summernote.min.js"></script>
 				
