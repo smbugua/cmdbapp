@@ -2,7 +2,7 @@
 include('../layout/nav.php');
 $markets=querydb("SELECT * from markets");
 $versions=querydb("SELECT * from versions");
-
+$environments=querydb("SELECT * FROM environments");
 
 ?>			
 			<!-- Right Sidebar Backdrop -->
@@ -81,75 +81,52 @@ $versions=querydb("SELECT * from versions");
 														
 													</select>
 												</div>
-															
+																						<div class="row">
+														<div class="col-md-10">
+															<div class="panel panel-default card-view">
+																<div class="panel-heading">
+																	<div class="pull-left">
+																		<h6 class="panel-title txt-dark">Release notes</h6>
+																	</div>
+																	<div class="clearfix"></div>
+																</div>
+																<div class="panel-wrapper collapse in">
+																	<div class="panel-body">
+																		<div class="summernote"></div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+
+												<script type="text/javascript">
+													function as(){
+														t=document.getElementById('t');
+														t.style.backgroundColor='blue';
+													}
+												</script>	
 														</div>
 													</div>
 												</div>
 											</fieldset>
 										 	
-											<h3><span class="number"><i class="icon-bag txt-black"></i></span><span class="head-font capitalize-font">shipping</span></h3>
+											<h3><span class="number"><i class="icon-bag txt-black"></i></span><span class="head-font capitalize-font">Deploy release</span></h3>
 											<fieldset>
 												<div class="row">
 													<div class="col-sm-12">
 														<div class="form-wrap">
 															<div class="form-group">
-																<label class="control-label mb-10" for="exampleCountry">country:</label>
-																<select id="exampleCountry" class="form-control required" name="country">
-																	<option value="1">India</option>
-																	<option value="2">Australia</option>
-																	<option value="3">USA</option>
-																	<option value="4">Japan</option>
-																</select>
+																<label class="control-label mb-10" for="exampleCountry">Deploy to</label>
+																<select class="form-control select2" name="environment">
+														<option>Select</option>
+															<?php while($row=mysqli_fetch_array($environments,MYSQLI_ASSOC)){?>
+															<option value="<?php echo $row['id']?>"><?php echo $row['name']?></option>
+															<?php }?>
+														
+								
+													</select>
 															</div>
-															<div class="form-group">
-																<div class="row">
-																	<div class="col-md-6 col-xs-12">
-																		<label class="control-label mb-10" for="firstName">first name:</label>
-																		<input id="firstName" type="text" name="first_name" class="form-control required" value="" />
-																	</div>
-																	<div class="span1"></div>
-																	<div class="col-md-6 col-xs-12">
-																		<label class="control-label mb-10" for="lastName">last name:</label>
-																		<input id="lastName" type="text" name="last_name" class="form-control required" value="" />
-																	</div>
-																</div>
-															</div>
-															<div class="form-group">
-																<label class="control-label mb-10" for="addressDetail">Address:</label>
-																<input id="addressDetail"  type="text" name="address" class="form-control required" value="" />
-															</div>
-															<div class="form-group">
-																<label class="control-label mb-10" for="cityName">city:</label>
-																<select id="cityName" class="form-control required" name="country">
-																	<option value="">Banglore</option>
-																	<option value="">Pune</option>
-																</select>
-															</div>
-															<div class="form-group">
-																<label class="control-label mb-10" for="stateName">state:</label>
-																<select id="stateName" class="form-control required" name="country">
-																	<option value="">Karnataka</option>
-																	<option value="">Maharashtra</option>
-																</select>
-															</div>
-															<div class="form-group">
-																<label class="control-label mb-10" for="postalCode">zip/postal code:</label>
-																<input id="postalCode" type="text" name="zip_code"  data-mask="99999-9999" class="form-control required" value="" />
-															</div>
-															<div class="form-group">
-																<label class="control-label mb-10" for="phoneNumber">phone number:</label>
-																<input type="text" id="phoneNumber"  data-mask="+40 999 999 999" name="phone_number" class="form-control required" value="" />
-															</div>
-															<div class="form-group">
-																<label class="control-label mb-10" for="emailAddress">email address:</label>
-																<input id="emailAddress" type="text" name="email_address" class="form-control required" value="" />
-															</div>
-															<div class="form-group mb-0">
-																<div class="checkbox checkbox-success">
-																	<input id="checkbox_1" type="checkbox">
-																	<label for="checkbox_1">Billing address is same as shipping address.</label>
-																</div>
-															</div>
+															
 														</div>
 													</div>
 												</div>
@@ -340,4 +317,8 @@ $versions=querydb("SELECT * from versions");
 	
 		<!-- Init JavaScript -->
 		<script src="dist/js/init.js"></script>
-
+		<!-- Summernote Plugin JavaScript -->
+		<script src="../vendors/bower_components/summernote/dist/summernote.min.js"></script>
+				
+		<!-- Summernote Wysuhtml5 Init JavaScript -->
+		<script src="../dist/js/summernote-data.js"></script>

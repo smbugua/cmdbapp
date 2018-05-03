@@ -70,7 +70,7 @@ echo <<<Headerfunction
 		
 		<!-- multi-select CSS -->
 		<link href="../vendors/bower_components/multiselect/css/multi-select.css" rel="stylesheet" type="text/css"/>
-		
+		<link rel="stylesheet" href="../vendors/bower_components/summernote/dist/summernote.css" />
 	<!-- Custom CSS -->
 	<link href="../dist/css/style.css" rel="stylesheet" type="text/css">
 </head>
