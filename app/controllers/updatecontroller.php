@@ -45,13 +45,13 @@ else if ($_GET['action']=="editapps") {
 	header("Location: ../apps/view_apps.php");
 }
 
-else if ($_GET['action']=="edituser") {
-	$name=$_POST['name'];
-	$username=$_POST['username'];
-	$email=$_POST['email'];
+else if ($_GET['action']=="edituserRole") {
+
 	$role=$_POST['role'];
 	$id=$_REQUEST['id'];
-	$exec->updateTable('user_role','roleid',$role,$id);
+	$q=processquery("SELECT id from user_role where userid='$id'");
+	$urid=$q['id'];
+	$exec->updateTable('user_role','roleid',$role,$urid);
 	header("Location: ../admin/view_users.php");
 }
 

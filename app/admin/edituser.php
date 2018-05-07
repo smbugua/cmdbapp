@@ -1,13 +1,12 @@
 <?php
 include('../layout/nav.php');
 $id=$_REQUEST['id'];
-$row=processquery("SELECT * from users where id='$id' ");
-$roles=querydb("SELECT * FROM roles");
-$user_role=querydb("SELECT * FROM user_role where userid='$id'");
+$row=processquery("SELECT ur.roleid as roleid, u.name as name,u.email as email, u.username as username, r.name as rolename, r.id as roleid, ur.userid as userid from user_role ur inner join roles r on r.id=ur.roleid inner join users u on u.id=ur.userid where userid='$id' ");
+$roles=querydb("SELECT * from roles");
 ?>
 	
 		
-		<!-- select2 CSS -->
+		<!-- select2 CSS --> 
 		<link href="../vendors/bower_components/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css"/>
 		
 
@@ -54,7 +53,7 @@ $user_role=querydb("SELECT * FROM user_role where userid='$id'");
 									<div class="panel-body">
 										<!-- <p class="text-muted"> Add Environment eg: KE-PROD,DU-TEST</p> -->
 										<div class="form-wrap mt-40">
-											<form method="post" action="<?php $exec->editObject('edituser',$id)?>"">
+											<form method="post" action="<?php $exec->editObject('edituserRole',$id)?>"">
 												<div class="form-group">
 													<label class="control-label mb-10">Name</label>
 													<input type="text" name="name" class="form-control" readonly required="" value="<?php echo $row['name']?>">
