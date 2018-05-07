@@ -255,21 +255,22 @@ $result=querydb("SELECT id,name FROM apps order by name asc;");
 										<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 											<div class="modal-dialog">
 												<div class="modal-content">
-													<form action="deploymentwizard.php" method="post" >
 													<div class="modal-header">
 														<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 														<h5 class="modal-title" id="myModalLabel">Project Options</h5>
+														
+													<form action="../deployments/deploymentswizard.php" method="post" >
 													</div>
 													<div class="modal-body">
 														<h5 class="mb-15">Active Projects</h5>
-														<select class="form-control" name="apps">
+														<select class="form-control" name="appid">
 															<?php while ($apps=mysqli_fetch_array($result,MYSQLI_ASSOC)) { ?>
 																<option value="<?php echo $apps['id']?>"><?php echo $apps['name']?></option>
 														<?php } ?>
 														</select>
 													</div>
 													<div class="modal-footer">
-														<button type="button" class="btn btn-info" data-dismiss="modal">Next</button>
+														<button type="button" class="btn btn-info" type="submit">Next</button>
 													</div>
 												</div>
 											</form>
