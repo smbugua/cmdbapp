@@ -1,6 +1,6 @@
 <?php
 include('../layout/nav.php');
-$results=querydb("SELECT n.name as nodename,n.ipaddress as ipaddress, m.market as marketname , me.name as marketenvironment from nodes n inner join markets_environments me on me.id =n.market_environment_id  inner join markets m on m.id=me.marketid where n.status = 0 order by m.market  asc");
+$results=querydb("SELECT n.id as id,n.port as port, n.name as nodename,n.ipaddress as ipaddress, m.market as marketname , me.name as marketenvironment from nodes n inner join markets_environments me on me.id =n.market_environment_id  inner join markets m on m.id=me.marketid where n.status = 1 order by m.market  asc");
 ?>
 <div class="right-sidebar-backdrop"></div>
 <!-- Main Content -->
@@ -51,13 +51,17 @@ $results=querydb("SELECT n.name as nodename,n.ipaddress as ipaddress, m.market a
 												<tbody>
 													<?php 
 													$no=1;
-													while( $row=mysqli_fetch_array($results,MYSQLI_ASSOC)){ ?>
+													while( $row=mysqli_fetch_array($results,MYSQLI_ASSOC)){ 
+														$id=$row['id'];
+
+														?>
 													<tr>
 														<td><?php echo $no ?></td>
 														<td><?php echo $row['marketname']?></td>
 														<td><?php echo $row['marketenvironment']?></td>
 														<td><?php echo $row['nodename']?></td>
 														<td><?php echo $row['ipaddress']?></td>
+														<td><?php echo $row['port']?></td>
 														<td><a href="<?php $exec->editClass('node',$id)?>" ><i class="fa fa-edit"></i> Edit</a>  </td>
 														<td><a href="../controllers/updatecontroller.php?id=<?php echo $row['id']?>&&action=deactivatenode"  ><i class="fa fa-trash"></i> De-Activate</a>  </td>
 													</tr>

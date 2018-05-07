@@ -29,7 +29,7 @@ if ($_GET['action']=="addmarket"){
 		$port=$_POST['port'];
 		$username=$_POST['username'];
 		$password=$_POST['password'];
-		$market_environment_id=$_POST['market_environment_id'];
+		$market_environment_id=$_POST['meid'];
 		$exec->addNode($market_environment_id,$name,$ipaddress,$port,$username,$password);
 		header("Location: ../nodes/view_nodes.php");
 	}

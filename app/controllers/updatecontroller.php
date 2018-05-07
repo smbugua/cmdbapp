@@ -73,7 +73,7 @@ else if ($_GET['action']=="deactivatemarket") {
 
 else if ($_GET['action']=="deactivatenode") {
 	$id=$_REQUEST['id'];
-	$exec->updateTable('nodes','status','1',$id);
+	$exec->updateTable('nodes','status','0',$id);
 	header("Location: ../nodes/view_nodes.php");
 }
 

@@ -7,6 +7,12 @@ if (!$_POST) {
 }elseif ($_POST) {
 $appid=$_POST['appid'];
 $marketenvid=$_POST['marketid'];
+$versions=processquery("SELECT version from versions where marketid='$marketenvid' && appid='$appid' order by id desc limit 1");
+$v=$versions['version'];
+$app=processquery("SELECT name FROM apps where id='$appid'");
+$market=processquery("SELECT m.market as marketname,me.name as envname from markets m inner join markets_environments me on me.marketid=m.id where me.id='$marketenvid'");
+$nodequery=querydb("SELECT * FROM nodes where market_environment_id ='$marketenvid'");
+
 	?>
 		<!-- vector map CSS -->
 		<link href="../vendors/bower_components/jquery-wizard.js/css/wizard.css" rel="stylesheet" type="text/css"/>
@@ -29,40 +35,58 @@ $marketenvid=$_POST['marketid'];
 							<div class="panel panel-default card-view">
 								<div class="panel-heading">
 									<div class="pull-left">
-										<h6 class="panel-title txt-dark">Advanced Wizard</h6>
+										<h6 class="panel-title txt-dark">Release Wizard</h6>
 									</div>
 									<div class="clearfix"></div>
 								</div>
 								<div class="panel-wrapper collapse in">
 									<div class="panel-body">
 										<form id="example-advanced-form" action="#">
-											<h3><span class="number"><i class="icon-user-following txt-black"></i></span><span class="head-font capitalize-font">signup</span></h3>
+											<h3><span class="number"><i class="icon-user-following txt-black"></i></span><span class="head-font capitalize-font">Version Overview</span></h3>
 											<fieldset>
 												<div class="row">
 													<div class="col-sm-6">
 														<div class="form-wrap">
-															<div class="form-group">
+																	<div class="form-group">
 																<div class="input-group">
-																	<div class="input-group-addon"><i class="icon-user"></i></div>
-																	<input type="text" class="form-control required"  name="Username" id="exampleInputuname" placeholder="Username">
+																	<div class="input-group-addon"><i class="icon-globe"></i>
+																		<label> Market : <?php echo $market['marketname'] ?></label><br>
+																		<p>Environment : <?php echo $market['envname'] ?></p> <br>
+																		<p>Application: <?php echo $app['name'] ?></p>
+																	</div>
+																</div>
+															</div>
+																<div class="form-group">
+																<div class="input-group">
+																	<div class="input-group-addon"><i class="icon-lock"></i>
+																		<label>Most Recent Version</label>
+																	</div>
+																	<?php
+																		if ($v<=0){
+																	?>
+																	
+																	<input type="text" class="form-control required" style="color:green" name="version" id="version" placeholder="Version" value="0.0 (No Previos Release exists)" readonly="" disabled="">
+																	<?php } elseif($v>0){ ?>
+																	<input type="text" class="form-control required"  name="version" id="version" placeholder="" value="<?php echo $v?>" readonly="" disabled="" >
+																	<?php }?>
 																</div>
 															</div>
 															<div class="form-group">
 																<div class="input-group">
-																	<div class="input-group-addon"><i class="icon-envelope-open"></i></div>
-																	<input type="email" class="form-control required" id="exampleInputEmail" name="email" placeholder="Enter email">
+																	<div class="input-group-addon"><i class="icon-lock"></i>
+																		<label>Version         </label>
+																	</div>
+																	
+																	<input type="text" class="form-control required" style="color: red"  name="version" id="version" placeholder="Version (start with 1.0)">
 																</div>
 															</div>
-															<div class="form-group">
+																<div class="form-group">
 																<div class="input-group">
-																	<div class="input-group-addon"><i class="icon-lock"></i></div>
-																	<input id="password-2" type="password" class="form-control required" name="password" placeholder="Enter password">
-																</div>
-															</div>
-															<div class="form-group mb-0">
-																<div class="input-group">
-																	<div class="input-group-addon"><i class="icon-lock"></i></div>
-																	<input type="password" class="form-control required"  id="confirm-2" name="confirm"  placeholder="confirm password">
+																	<div class="input-group-addon"><i class="icon-lock"></i>
+																		<label>Release Notes</label>
+																	</div>
+																	
+																	<textarea class="form-control" style="color: green" name="notes" cols="5" rows="9" required=""></textarea>
 																</div>
 															</div>
 														</div>
@@ -70,69 +94,44 @@ $marketenvid=$_POST['marketid'];
 												</div>
 											</fieldset>
 										 	
-											<h3><span class="number"><i class="icon-bag txt-black"></i></span><span class="head-font capitalize-font">shipping</span></h3>
+											<h3><span class="number"><i class="icon-bag txt-black"></i></span><span class="head-font capitalize-font">Choose Nodes</span></h3>
 											<fieldset>
 												<div class="row">
 													<div class="col-sm-12">
 														<div class="form-wrap">
 															<div class="form-group">
-																<label class="control-label mb-10" for="exampleCountry">country:</label>
-																<select id="exampleCountry" class="form-control required" name="country">
-																	<option value="1">India</option>
-																	<option value="2">Australia</option>
-																	<option value="3">USA</option>
-																	<option value="4">Japan</option>
-																</select>
+																<div class="row mt-40">
+											<div class="col-sm-12">
+												<table class="table table-bordered">
+													<thead>
+														<th>#</th>
+														<th>Endpoint Name</th>
+														<th>Host IP Address</th>
+														<th>Check</th>
+													</thead>
+													<tbody>
+																																					
+												<?php
+												$no=1; 
+												while($node=mysqli_fetch_array($nodequery,MYSQLI_ASSOC)){ ?>
+												<tr>
+													<td><?php echo $no++?></td>
+													<td> <?php echo $node['name']?></td>
+													<td> <?php echo $node['ipaddress']?></td>
+													<td><input type="checkbox" name="nodes[]" value="<?php echo $node['id']?>"></td>
+													<td></td>
+												<?php }?>
+													</tbody>
+			
+												</table>
+												<div class="button-box"> 
+													<a id="select-all" class="btn btn-danger btn-outline mr-10 mt-15" href="#">Test Connection all</a> 
+													<textarea id="console" class="form-control" cols="10" rows="5" readonly=""></textarea>
+												</div>
+											</div>
 															</div>
-															<div class="form-group">
-																<div class="row">
-																	<div class="col-md-6 col-xs-12">
-																		<label class="control-label mb-10" for="firstName">first name:</label>
-																		<input id="firstName" type="text" name="first_name" class="form-control required" value="" />
-																	</div>
-																	<div class="span1"></div>
-																	<div class="col-md-6 col-xs-12">
-																		<label class="control-label mb-10" for="lastName">last name:</label>
-																		<input id="lastName" type="text" name="last_name" class="form-control required" value="" />
-																	</div>
-																</div>
-															</div>
-															<div class="form-group">
-																<label class="control-label mb-10" for="addressDetail">Address:</label>
-																<input id="addressDetail"  type="text" name="address" class="form-control required" value="" />
-															</div>
-															<div class="form-group">
-																<label class="control-label mb-10" for="cityName">city:</label>
-																<select id="cityName" class="form-control required" name="country">
-																	<option value="">Banglore</option>
-																	<option value="">Pune</option>
-																</select>
-															</div>
-															<div class="form-group">
-																<label class="control-label mb-10" for="stateName">state:</label>
-																<select id="stateName" class="form-control required" name="country">
-																	<option value="">Karnataka</option>
-																	<option value="">Maharashtra</option>
-																</select>
-															</div>
-															<div class="form-group">
-																<label class="control-label mb-10" for="postalCode">zip/postal code:</label>
-																<input id="postalCode" type="text" name="zip_code"  data-mask="99999-9999" class="form-control required" value="" />
-															</div>
-															<div class="form-group">
-																<label class="control-label mb-10" for="phoneNumber">phone number:</label>
-																<input type="text" id="phoneNumber"  data-mask="+40 999 999 999" name="phone_number" class="form-control required" value="" />
-															</div>
-															<div class="form-group">
-																<label class="control-label mb-10" for="emailAddress">email address:</label>
-																<input id="emailAddress" type="text" name="email_address" class="form-control required" value="" />
-															</div>
-															<div class="form-group mb-0">
-																<div class="checkbox checkbox-success">
-																	<input id="checkbox_1" type="checkbox">
-																	<label for="checkbox_1">Billing address is same as shipping address.</label>
-																</div>
-															</div>
+															
+															
 														</div>
 													</div>
 												</div>
@@ -278,8 +277,10 @@ $marketenvid=$_POST['marketid'];
 		<script src="../vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
 		
 		<!-- Bootstrap Touchspin JavaScript -->
-		<script src="../vendors/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></scrip
+		<script src="../vendors/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
 
+		<!-- Form Advance Init JavaScript -->
+		<script src="../dist/js/form-advance-data.js"> </script>
 <?php	
 }
 ?>

@@ -77,25 +77,11 @@ $markets=querydb("SELECT * FROM markets");
 												</div>
 													<div class="form-group">
 													<label class="control-label mb-10">Environment</label>
-													<select class="form-control select2" name="market_environment_id">
+													<select class="form-control select2" name="meid">
 														<option>Select</option>
 														<optgroup label="Environment">
 															<?php while($row=mysqli_fetch_array($envs,MYSQLI_ASSOC)){?>
 															<option value="<?php echo $row['id']?>"><?php echo $row['name']?></option>
-															<?php }?>
-														</optgroup>
-														
-														
-													</select>
-												</div>
-
-												<div class="form-group">
-													<label class="control-label mb-10">Market</label>
-													<select class="form-control select2" name="market">
-														<option>Select</option>
-														<optgroup label="Markets">
-															<?php while($row=mysqli_fetch_array($markets,MYSQLI_ASSOC)){?>
-															<option value="<?php echo $row['id']?>"><?php echo $row['market']?></option>
 															<?php }?>
 														</optgroup>
 														
