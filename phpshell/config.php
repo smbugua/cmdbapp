@@ -21,7 +21,7 @@
 ; The default configuration has no users defined, you have to add your
 ; own (choose good passwords!).  Add uses as simple
 ;
-;   username = "password"
+   simon = "simon"
 ;
 ; lines.  Please quote your password using double-quotes as shown.
 ; The semi-colon ':' is a reserved character, so do *not* use that in
