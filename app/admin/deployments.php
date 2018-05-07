@@ -258,7 +258,7 @@ $result=querydb("SELECT id,name FROM apps order by name asc;");
 													<div class="modal-header">
 														<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 														<h5 class="modal-title" id="myModalLabel">Project Options</h5>
-														
+
 													<form action="../deployments/deploymentswizard.php" method="post" >
 													</div>
 													<div class="modal-body">
@@ -270,7 +270,7 @@ $result=querydb("SELECT id,name FROM apps order by name asc;");
 														</select>
 													</div>
 													<div class="modal-footer">
-														<button type="button" class="btn btn-info" type="submit">Next</button>
+														<button  class="btn btn-info" type="submit">Next</button>
 													</div>
 												</div>
 											</form>
