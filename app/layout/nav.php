@@ -455,8 +455,7 @@ echo <<<Headerfunction
 		<script src="../vendors/bower_components/jquery.steps/build/jquery.steps.min.js"></script>
 		<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
 
-				<!-- Form Wizard Data JavaScript -->
-		<script src="dist/js/form-wizard-data.js"></script>
+		
 		
 		<!-- Data table JavaScript -->
 		<script src="../vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
@@ -465,7 +464,7 @@ echo <<<Headerfunction
 		<script src="../vendors/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
 		
 		<!-- Starrr JavaScript -->
-		<script src="dist/js/starrr.js"></script>
+		<script src="../dist/js/starrr.js"></script>
 
 	
 <?php

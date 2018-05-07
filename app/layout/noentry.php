@@ -18,7 +18,7 @@
 		
 		
 		<!-- Custom CSS -->
-		<link href="dist/css/style.css" rel="stylesheet" type="text/css">
+		<link href="../dist/css/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<!--Preloader-->
@@ -79,9 +79,9 @@
 		<script src="../vendors/bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
 		
 		<!-- Slimscroll JavaScript -->
-		<script src="dist/js/jquery.slimscroll.js"></script>
+		<script src="../dist/js/jquery.slimscroll.js"></script>
 		
 		<!-- Init JavaScript -->
-		<script src="dist/js/init.js"></script>
+		<script src="../dist/js/init.js"></script>
 	</body>
 </html>

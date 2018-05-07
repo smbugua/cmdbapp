@@ -1,14 +1,18 @@
 <?php
 include('../layout/nav.php');
 $result=querydb("SELECT id,name FROM apps order by name asc;");
+$result2=querydb("SELECT id,name FROM markets_environments order by name asc");
 
 ?>
 <div class="right-sidebar-backdrop"></div>
 		<!-- /Right Sidebar Backdrop -->
 
 		<!-- Summernote css -->
-		<link rel="stylesheet" href="../vendors/bower_components/summernote/dist/summernote.css" />
-		
+		<link rel="stylesheet" href="../vendors/bower_components/summernote/dist/summernote.css" />	
+
+		<!-- select2 CSS -->
+		<link href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.2/select2.css" rel="stylesheet"/>
+
         <!-- Main Content -->
 		<div class="page-wrapper">
 			<div class="container-fluid pt-25">
@@ -262,10 +266,17 @@ $result=querydb("SELECT id,name FROM apps order by name asc;");
 													<form action="../deployments/deploymentswizard.php" method="post" >
 													</div>
 													<div class="modal-body">
-														<h5 class="mb-15">Active Projects</h5>
+														<h5 class="mb-15">Active Projects and Environments</h5>
+														<label>Applications</label>
 														<select class="form-control" name="appid">
 															<?php while ($apps=mysqli_fetch_array($result,MYSQLI_ASSOC)) { ?>
 																<option value="<?php echo $apps['id']?>"><?php echo $apps['name']?></option>
+														<?php } ?>
+														</select>
+														<label>Market Environments</label>
+														<select class="form-control select2" name="me_id" id="el">
+															<?php while ($mkt=mysqli_fetch_array($result2,MYSQLI_ASSOC)) { ?>
+																<option value="<?php echo $mkt['id']?>"><?php echo $mkt['name']?></option>
 														<?php } ?>
 														</select>
 													</div>
@@ -296,12 +307,26 @@ $result=querydb("SELECT id,name FROM apps order by name asc;");
 						t=document.getElementById('t');
 						t.style.backgroundColor='blue';
 					}
-				</script>
+
+
+					// In your Javascript (external .js resource or <script> tag)
+$(document).ready(function() {
+    
+
+  $('#e1').select2({
+
+    });
+		
+});
+
+		</script>
 
 
 <?php include('../layout/footer.php');?>
 		<!-- Summernote Plugin JavaScript -->
 		<script src="../vendors/bower_components/summernote/dist/summernote.min.js"></script>
-				
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/select2/3.2/select2.css"></script>
+
+
 		<!-- Summernote Wysuhtml5 Init JavaScript -->
 		<script src="../dist/js/summernote-data.js"></script>
