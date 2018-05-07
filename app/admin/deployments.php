@@ -274,7 +274,7 @@ $result2=querydb("SELECT id,name FROM markets_environments order by name asc");
 														<?php } ?>
 														</select>
 														<label>Market Environments</label>
-														<select class="form-control select2" name="me_id" id="el">
+														<select class="form-control select2" name="marketid" id="el">
 															<?php while ($mkt=mysqli_fetch_array($result2,MYSQLI_ASSOC)) { ?>
 																<option value="<?php echo $mkt['id']?>"><?php echo $mkt['name']?></option>
 														<?php } ?>
