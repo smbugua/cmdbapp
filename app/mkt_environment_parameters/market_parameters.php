@@ -2,9 +2,12 @@
 <?php
 include('../layout/nav.php');
 $market=$_GET['market'];
+$app=$_GET['app'];
 $mkt=mysqli_fetch_array(querydb("SELECT name from markets_environments where marketid='$market'"));
-$query=querydb("SELECT mep.id as mepid ,me.name as marketenvironmentname , p.name as parametername ,mep.parametervalue as pvalue ,me.datemodifed as datemodified from markets_environments me inner join market_environment_parameters mep on mep.marketenvironmentid=me.id inner join parameters p on p.id=mep.parameterid where me.id='$market'");
+$query=querydb("SELECT mep.id as mepid ,me.name as marketenvironmentname , p.name as parametername ,mep.parametervalue as pvalue ,me.datemodifed as datemodified from markets_environments me inner join market_environment_parameters mep on mep.marketenvironmentid=me.id inner join parameters p on p.id=mep.parameterid where me.id='$market' AND mep.appid='$app'");
 $query2=querydb("SELECT  p.id as pid ,p.name as pname  FROM parameters p where p.id not in (SELECT mep.parameterid  FROM market_environment_parameters mep where mep.marketenvironmentid='$market')");
+$query3=querydb("SELECT name from apps where id='$app'");
+$apps=mysqli_fetch_array($query3,MYSQLI_ASSOC);
 $no=1;
 
 ?>
@@ -22,7 +25,7 @@ $no=1;
 				<!-- Title -->
 				<div class="row heading-bg">
 					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-					  <h5 class="txt-dark"><?php echo $mkt['name']?></h5>
+					  <h5 class="txt-dark"><?php echo $mkt['name']." ".$apps['name']." CONFIGURATIONS"?> </h5>
 					</div>
 					<!-- Breadcrumb -->
 					<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
@@ -58,7 +61,7 @@ $no=1;
 																	<h4 class="modal-title">Add Market Parameter</h4>
 																</div>
 																<div class="modal-body">
-																	<form role="form" class="form-horizontal" method="post" action="../controllers/marketcontrolclass.php?action=addmarketparameter&&id=<?php echo $market?>">
+																	<form role="form" class="form-horizontal" method="post" action="../controllers/marketcontrolclass.php?action=addmarketparameter&&id=<?php echo $market?>&&appid=<?php echo $app?>">
 																		<div class="form-group">
 																			<label class="col-lg-2 control-label">Parameter Name</label>
 																			<div class="col-lg-10">
@@ -101,7 +104,7 @@ $no=1;
 													</div>
 													<div class="panel-heading pt-20 pb-20 pl-15 pr-15">
 														<div class="pull-left">
-															<h6 class="panel-title txt-dark"> <?php echo $mkt['name']?> MARKET PARAMETERS </h6>
+															<h6 class="panel-title txt-dark"> <?php echo $mkt['name']." ".$apps['name']." CONFIGURATIONS"?>  PARAMETERS </h6>
 														</div>
 														<div class="pull-right">
 															<form role="search" class="inbox-search inline-block pull-left mr-15">

@@ -41,8 +41,8 @@ class MainClass
 		querydb("INSERT INTO nodes(market_environment_id,name,ipaddress,port,username,password)values('$meid','$name','$ip','$port','$user','$pass')");
 	}
 	//add market params
-	function addMarketParameter($meid,$paramid,$paramvalue){
-		querydb("INSERT INTO market_environment_parameters(marketenvironmentid,parameterid,parametervalue)Values('$meid','$paramid','$paramvalue')");
+	function addMarketParameter($meid,$paramid,$paramvalue,$appid){
+		querydb("INSERT INTO market_environment_parameters(marketenvironmentid,parameterid,parametervalue,appid)Values('$meid','$paramid','$paramvalue','$appid')");
 	}
 
 	//add parameters

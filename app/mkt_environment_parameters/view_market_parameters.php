@@ -2,6 +2,7 @@
 include('../layout/nav.php');
 $envs=querydb("SELECT * FROM environments");
 $markets=querydb("SELECT * FROM markets_environments");
+$app=querydb("SELECT id,name from apps");
 
 ?>
 
@@ -62,6 +63,16 @@ $markets=querydb("SELECT * FROM markets_environments");
 														<!--<optgroup label="Markets"> -->
 															<?php while($row=mysqli_fetch_array($markets,MYSQLI_ASSOC)){?>
 															<option value="<?php echo $row['id']?>"><?php echo $row['name']?></option>
+															<?php }?>
+														</optgroup>
+														
+														
+													</select>	<label class="control-label mb-10">App</label>
+													<select class="form-control select2" name="app">
+														<option>Select</option>
+														<!--<optgroup label="Markets"> -->
+															<?php while($apps=mysqli_fetch_array($app,MYSQLI_ASSOC)){?>
+															<option value="<?php echo $apps['id']?>"><?php echo $apps['name']?></option>
 															<?php }?>
 														</optgroup>
 														

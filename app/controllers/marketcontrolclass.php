@@ -68,8 +68,9 @@ if ($_GET['action']=="addmarket"){
 		$parameterid=$_POST['parameterid'];
 		$parametervalue=$_POST['parametervalue'];
 		$id=$_GET['id'];
-		$exec->addMarketParameter($id,$parameterid,$parametervalue);
-		header("Location: ../mkt_environment_parameters/market_parameters.php?market=$id");
+		$appid=$_GET['appid'];
+		$exec->addMarketParameter($id,$parameterid,$parametervalue,$appid);
+		header("Location: ../mkt_environment_parameters/market_parameters.php?market=$id&app=$appid");
 	}
 
 ?>
