@@ -1,5 +1,7 @@
 <?php
 include('../layout/nav.php');
+$result=querydb("SELECT id,name FROM apps order by name asc;");
+
 ?>
 <div class="right-sidebar-backdrop"></div>
 		<!-- /Right Sidebar Backdrop -->
@@ -187,7 +189,7 @@ include('../layout/nav.php');
 				</div>
 
 					<div class="row">
-						<div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+						<!--div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
                         <div class="panel panel-default card-view panel-refresh">
 							<div class="refresh-container">
 								<div class="la-anim-1"></div>
@@ -236,7 +238,53 @@ include('../layout/nav.php');
 								</div>
 							</div>
                         </div>
-                    </div>
+                    </div-->
+
+
+ 											<div class="col-md-4">
+							<div class="panel panel-default card-view">
+								<div class="panel-heading">
+									<div class="pull-left">
+										<h6 class="panel-title txt-dark">Actions</h6>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+								<div  class="panel-wrapper collapse in">
+									<div  class="panel-body">
+										<!-- sample modal content -->
+										<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<form action="deploymentwizard.php" method="post" >
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+														<h5 class="modal-title" id="myModalLabel">Project Options</h5>
+													</div>
+													<div class="modal-body">
+														<h5 class="mb-15">Active Projects</h5>
+														<select class="form-control" name="apps">
+															<?php while ($apps=mysqli_fetch_array($result,MYSQLI_ASSOC)) { ?>
+																<option value="<?php echo $apps['id']?>"><?php echo $apps['name']?></option>
+														<?php } ?>
+														</select>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-info" data-dismiss="modal">Next</button>
+													</div>
+												</div>
+											</form>
+												<!-- /.modal-content -->
+											</div>
+											<!-- /.modal-dialog -->
+										</div>
+										<!-- /.modal -->
+										<!-- Button trigger modal -->
+										<a data-toggle="modal" data-target="#myModal" class="btn btn-success">Choose Project To Deploy</a>  
+									</div>
+								</div>
+							</div>
+						</div>
+
                     </div>
 				<!-- /Row -->
 
