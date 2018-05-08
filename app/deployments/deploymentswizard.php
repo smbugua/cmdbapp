@@ -142,7 +142,7 @@ $nodequery=querydb("SELECT * FROM nodes where market_environment_id ='$marketenv
 														<div class="form-group">
 															<div class="button-box"> 
 													<a id="select-all" class="btn btn-danger  mr-10 mt-15" href="#">Test Connections File</a>
-													<a id="select-all" class="btn btn-success  mr-10 mt-15" href="../scripts/filescript.php?marketenvid=<?php echo $marketenvid?>&&appid=<?php echo $appid?>">Generate File</a> 
+													<a id="select-all" class="btn btn-success  mr-10 mt-15" href="../scripts/filescript.php?marketenvid=<?php echo $marketenvid?>&&appid=<?php echo $appid?>" target="_blank">Generate File</a> 
 													<a id="select-all" class="btn btn-info  mr-10 mt-15" href="../phpshell/phpshell.php" target="blank">Got to Shell</a> 
 												</div>
 														</div>
