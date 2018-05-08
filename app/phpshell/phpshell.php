@@ -1,5 +1,4 @@
 <?php // -*- coding: utf-8 -*-
-
 define('PHPSHELL_VERSION', '2.4');
 /*
 
@@ -454,7 +453,7 @@ if ($_SESSION['authenticated']) {
 
 <body onload="init()">
 
-<h1>PHP Shell <?php echo PHPSHELL_VERSION ?></h1>
+<h1>CMDB Shell <?php echo PHPSHELL_VERSION ?></h1>
 
 <form name="shell" enctype="multipart/form-data" action="<?php print($_SERVER['PHP_SELF']) ?>" method="post">
 <div><input name="levelup" id="levelup" type="hidden"></div>
@@ -496,7 +495,7 @@ if (!$_SESSION['authenticated']) {
 
 <?php } else { /* Authenticated. */ ?>
 <fieldset>
-  <legend><?php echo "Phpshell running on: " . $_SERVER['SERVER_NAME']; ?></legend>
+  <legend><?php echo "CMDB Shell running on: " . $_SERVER['SERVER_NAME']; ?></legend>
 <p>Current Working Directory:
 <span class="pwd"><?php
     if ( $showeditor ) {

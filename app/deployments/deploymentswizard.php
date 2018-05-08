@@ -124,10 +124,7 @@ $nodequery=querydb("SELECT * FROM nodes where market_environment_id ='$marketenv
 													</tbody>
 			
 												</table>
-												<div class="button-box"> 
-													<a id="select-all" class="btn btn-danger btn-outline mr-10 mt-15" href="#">Test Connection all</a> 
-													<textarea id="console" class="form-control" cols="10" rows="5" readonly=""></textarea>
-												</div>
+												
 											</div>
 															</div>
 															
@@ -137,127 +134,26 @@ $nodequery=querydb("SELECT * FROM nodes where market_environment_id ='$marketenv
 												</div>
 											</fieldset>
 										 
-											<h3><span class="number"><i class="icon-credit-card txt-black"></i></span><span class="head-font capitalize-font">payment</span></h3>
+											<h3><span class="number"><i class="icon-credit-card txt-black"></i></span><span class="head-font capitalize-font">Config File Operations</span></h3>
 												<fieldset>
 												<!--CREDIT CART PAYMENT-->
 												<div class="row">
 													<div class="col-sm-12">
 														<div class="form-group">
-															<label class="control-label mb-10" for="CreditCardType">card type:</label>
-															<select id="CreditCardType" name="CreditCardType" class="form-control required">
-																<option value="5">Visa</option>
-																<option value="6">MasterCard</option>
-																<option value="7">American Express</option>
-																<option value="8">Discover</option>
-															</select>
+															<div class="button-box"> 
+													<a id="select-all" class="btn btn-danger  mr-10 mt-15" href="#">Test Connections File</a>
+													<a id="select-all" class="btn btn-success  mr-10 mt-15" href="#">Generate File</a> 
+													<a id="select-all" class="btn btn-info  mr-10 mt-15" href="../phpshell/phpshell.php" target="blank">Got to Shell</a> 
+												</div>
 														</div>
-														<div class="form-group">
-															<label class="control-label mb-10" for="cardNo">Credit Card Number:</label>
-															<input type="text" id="cardNo" data-mask="9999-9999-9999-9999" class="form-control required" name="car_number" value="" />
-														</div>
-														<div class="form-group">
-															<label class="control-label mb-10" for="cvv">card cvv:</label>
-															<input type="text" id="cvv" class="form-control  required" data-mask="999" name="car_code" value="" />
-														</div>
-														<div class="form-group">
-															<label class="control-label mb-10">expiration date:</label>
-															<div class="row">
-																<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-																	<select class="form-control required" name="month">
-																		<option value="">Month</option>
-																		<option value="1">01</option>
-																		<option value="2">02</option>
-																		<option value="3">03</option>
-																		<option value="4">04</option>
-																		<option value="5">05</option>
-																		<option value="6">06</option>
-																	</select>
-																</div>
-																<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-																	<select class="form-control required" name="year">
-																		<option value="1">Year</option>
-																		<option value="2">2001</option>
-																	</select>
-																</div>
-															</div>
-														</div>
-														<div class="form-group mb-0">
-															<div class="row">
-																<div class="col-md-12">
-																	<ul class="cards">
-																		<li class="visa hand"><img src="../img/1-s.png" alt="card"/></li>
-																		<li class="mastercard hand"><img src="../img/2-s.png" alt="card"/></li>
-																		<li class="amex hand"><img src="../img/3-s.png" alt="card"/></li>
-																		<li class="amex hand"><img src="../img/4-s.png" alt="card"/></li>
-																		</ul>
-																	<div class="clearfix"></div>
-																</div>
-															</div>
-														</div>
+														
 														
 													</div>
 												</div>
 												<!--CREDIT CART PAYMENT END-->
 											</fieldset>
 										 
-											<h3><span class="number"><i class="icon-basket-loaded txt-black"></i></span><span class="head-font capitalize-font">review cart</span></h3>
-											<fieldset>
-													<table class="table display product-overview" id="datable_1">
-														<thead>
-															<tr>
-																<th>Photo</th>
-																<th>Product</th>
-																<th>Quantity</th>
-																<th>price</th>
-																<th>Actions</th>
-															</tr>
-														</thead>
-														<tfoot>
-															<tr>
-																<th colspan="3">Subtotal:</th>
-																<th></th>
-																<th></th>
-															</tr>
-														</tfoot>
-														<tbody>
-															<tr>
-																<td>
-																	<img src="../img/chair.jpg" alt="iMac" width="80">
-																</td>
-																<td>Rounded Chair</td>
-																<td>
-																<input class="vertical-spin" type="text" data-bts-button-down-class="btn btn-default"   data-bts-button-up-class="btn btn-default" value="20" name="vertical-spin">
-																</td>
-																<td>$400</td>
-																
-																<td><a href="javascript:void(0)" class="text-inverse" title="Delete" data-toggle="tooltip"><i class="fa fa-trash"></i></a></td>
-															</tr>
-															<tr>
-																<td>
-																	<img src="../img/chair2.jpg" alt="iMac" width="80">
-																</td>
-																<td>Rounded Chair</td>
-																<td>
-																	<input class="vertical-spin" type="text" data-bts-button-down-class="btn btn-default"   data-bts-button-up-class="btn btn-default" value="10" name="vertical-spin">
-																</td>
-																<td>$450</td>
-																<td><a href="javascript:void(0)" class="text-inverse" title="Delete" data-toggle="tooltip"><i class="fa fa-trash"></i></a></td>
-															</tr>
-															<tr>
-																<td>
-																	<img src="../img/chair3.jpg" alt="iMac" width="80">
-																</td>
-																<td>Rounded Chair</td>
-																<td>
-																<input class="vertical-spin" type="text" data-bts-button-down-class="btn btn-default"   data-bts-button-up-class="btn btn-default" value="15" name="vertical-spin">
-																</td>
-																<td>$470</td>
-																
-																<td><a href="javascript:void(0)" class="text-inverse" title="Delete" data-toggle="tooltip"><i class="fa fa-trash"></i></a></td>
-															</tr>
-														</tbody>
-													</table>
-											</fieldset>
+											
 										</form>
 									</div>
 								</div>
