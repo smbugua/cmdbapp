@@ -604,17 +604,17 @@ if (!$_SESSION['authenticated']) {
 
 <hr>
 
-<p>Please consult the <a href="README">README</a>, <a
+<!--p>Please consult the <a href="README">README</a>, <a
 href="INSTALL">INSTALL</a>, and <a href="SECURITY">SECURITY</a> files for
-instruction on how to use PHP Shell.</p>
+instruction on how to use PHP Shell.</p-->
 <p>If you have not created accounts for phpshell, please use 
 <a href="pwhash.php">pwhash.php</a> to create secure passwords.</p>
 
 <hr>
-<address>
+<!--address>
 Copyright &copy; 2000&ndash;2012, the Phpshell-team. Get the
 latest version at <a
 href="http://phpshell.sourceforge.net/">http://phpshell.sourceforge.net/</a>.
-</address>
+</address-->
 </body>
 </html>
