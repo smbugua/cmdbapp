@@ -41,7 +41,7 @@ $nodequery=querydb("SELECT * FROM nodes where market_environment_id ='$marketenv
 								</div>
 								<div class="panel-wrapper collapse in">
 									<div class="panel-body">
-										<form id="example-advanced-form" action="#">
+										<form id="example-advanced-form" action="../controllers/deploymentsclass.php?action=queue" method="post">
 											<h3><span class="number"><i class="icon-user-following txt-black"></i></span><span class="head-font capitalize-font">Version Overview</span></h3>
 											<fieldset>
 												<div class="row">
@@ -49,6 +49,8 @@ $nodequery=querydb("SELECT * FROM nodes where market_environment_id ='$marketenv
 														<div class="form-wrap">
 																	<div class="form-group">
 																<div class="input-group">
+																	<input type="text" name="marketenvid" class="hidden" value="<?php echo $marketenvid?>">
+																	<input type="text" name="appid" class="hidden" value="<?php echo $appid?>">
 																	<div class="input-group-addon"><i class="icon-globe"></i>
 																		<label> Market : <?php echo $market['marketname'] ?></label><br>
 																		<p>Environment : <?php echo $market['envname'] ?></p> <br>
@@ -65,9 +67,9 @@ $nodequery=querydb("SELECT * FROM nodes where market_environment_id ='$marketenv
 																		if ($v<=0){
 																	?>
 																	
-																	<input type="text" class="form-control required" style="color:green" name="version" id="version" placeholder="Version" value="0.0 (No Previos Release exists)" readonly="" disabled="">
+																	<input type="text" class="form-control required" style="color:green" name="preversion" id="version" placeholder="Version" value="0.0 (No Previos Release exists)" readonly="" disabled="">
 																	<?php } elseif($v>0){ ?>
-																	<input type="text" class="form-control required"  name="version" id="version" placeholder="" value="<?php echo $v?>" readonly="" disabled="" >
+																	<input type="text" class="form-control required"  name="preversion" id="version" placeholder="" value="<?php echo $v?>" readonly="" disabled="" >
 																	<?php }?>
 																</div>
 															</div>
@@ -141,7 +143,7 @@ $nodequery=querydb("SELECT * FROM nodes where market_environment_id ='$marketenv
 													<div class="col-sm-12">
 														<div class="form-group">
 															<div class="button-box"> 
-													<a id="select-all" class="btn btn-danger  mr-10 mt-15" href="#">Test Connections File</a>
+													<a id="select-all" class="btn btn-danger  mr-10 mt-15" href="#">Queue For Deployment</a>
 													<a id="select-all" class="btn btn-success  mr-10 mt-15" href="../scripts/filescript.php?marketenvid=<?php echo $marketenvid?>&&appid=<?php echo $appid?>" target="_blank">Generate File</a> 
 													<a id="select-all" class="btn btn-info  mr-10 mt-15" href="../phpshell/phpshell.php" target="blank">Got to Shell</a> 
 												</div>
