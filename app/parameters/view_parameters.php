@@ -46,13 +46,13 @@ $results=querydb("SELECT name from parameters order by name asc ");
 													$no=1;
 													while( $row=mysqli_fetch_array($results,MYSQLI_ASSOC)){ ?>
 													<tr>
-														<td><?php echo $no ?></td>
+														<td><?php echo $no ++ ?></td>
 														<td><?php echo $row['name']?></td>
 													<!--	<td><a href="edit_nodes.php?<?php echo $row['id']?>" ><i class="fa fa-edit"></i> Edit</a>  </td>
 														<td><a href="../controllers/marketcontrolclass.php?<?php echo $row['id']?>&&action=deactivatenode"  ><i class="fa fa-trash"></i> De-Activate</a>  </td> -->
 													</tr>
 
-													<?php } $no ++; ?>
+													<?php } ?>
 												</tbody>
 											</table>
 										</div>

@@ -87,6 +87,7 @@ $markets=querydb("SELECT * FROM markets");
 												</div>
 
 														<button type="submit" class="btn btn-success mr-10" name="addmarket">Edit</button>
+														<button type="submit" class="btn btn-default" name="cancel">Cancel</button>
 												</div>	
 												
 												

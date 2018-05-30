@@ -4,6 +4,7 @@ $id=$_REQUEST['id'];
 $market=$_REQUEST['market'];
 $query=querydb("SELECT mep.id as mepid ,me.name as marketenvironmentname , p.name as parametername ,mep.parametervalue as pvalue ,me.datemodifed as datemodified from markets_environments me inner join market_environment_parameters mep on mep.marketenvironmentid=me.id inner join parameters p on p.id=mep.parameterid where mepid='$id'");
 $query2=querydb("SELECT  p.id as pid ,p.name as pname  FROM parameters p inner join  market_environment_parameters mep  where mep.parameterid=p.id && p.id ='$id'");
+$appid=querydb("SELECT * from market_environment_parameters where id = '$id'");
 ?>
 <div class="right-sidebar-backdrop"></div>
 <!-- Main Content -->
@@ -39,11 +40,11 @@ $query2=querydb("SELECT  p.id as pid ,p.name as pname  FROM parameters p inner j
 											<div class="col-sm-12 col-xs-12">
 												<div class="form-wrap">
 													<form action="<?php $exec->editObject('editmarketparameters',$id)?>" method="post">
-																		<div class="form-group">
+																		<div class="form-wrap mt-40">
 
 															<input type="text" name="market" value="<?php echo $market?>" class="hidden">
-																			<label class="col-lg-2 control-label">Parameter Name</label>
-																			<div class="col-lg-10">
+																			<label class="control-label mb-10">Parameter Name</label>
+																			<div class="form-group">
 																				<select class="form-control" name="parameterid" disabled="">
 																				<?php while($r=mysqli_fetch_array($query2,MYSQLI_ASSOC)){ ?>
 																				<option value="<?php echo $r['pid']?>"><?php echo $r['pname']?></option>
@@ -52,8 +53,8 @@ $query2=querydb("SELECT  p.id as pid ,p.name as pname  FROM parameters p inner j
 																			</div>
 																		</div>
 																		<div class="form-group">
-																			<label class="col-lg-2 control-label">Parameter Value</label>
-																			<div class="col-lg-10">
+																			<label class="control-label mb-10">Parameter Value</label>
+																			<div class="form-group">
 																				<input type="text" placeholder="" id="cc"  name="parametervalue" required="" class="form-control">
 																			</div>
 																		</div>

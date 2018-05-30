@@ -298,11 +298,11 @@ echo <<<Headerfunction
 		<div class="fixed-sidebar-left">
 			<ul class="nav navbar-nav side-nav nicescroll-bar">
 				<li class="navigation-header">
-					<span>Main</span> 
+					<span>Dashboard</span> 
 					<i class="zmdi zmdi-more"></i>
 				</li>
 				<li>
-					<a class="active" href="../admin/index.php" data-toggle="collapse" data-target="#dashboard_dr"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Dashboard</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+					<!-- <a class="active" href="../admin/index.php" data-toggle="collapse" data-target="#dashboard_dr"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Dashboard</span></div><div class="pull-right"></div><div class="clearfix"></div></a> -->
 				</li>
 				<li>
 					<a href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr"><div class="pull-left"><i class="zmdi zmdi-laptop mr-20"></i><span class="right-nav-text">Infrastructure</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
@@ -311,13 +311,13 @@ echo <<<Headerfunction
 							<a href="../admin/infrastructure.php">Dashboard</a>
 						</li>
 						<li>
-							<a href="../markets/index.php">Markets</a>
+							<a href="../markets/view_market.php">Markets</a>
 						</li>
 						<li>
-							<a href="../environments/index.php">Environments</a>
+							<a href="../environments/view_market_environment.php">Environments</a>
 						</li>
 						<li>
-							<a href="../nodes/index.php">Nodes</a>
+							<a href="../nodes/view_nodes.php">Nodes</a>
 						</li>
 					</ul>
 				</li>
@@ -355,7 +355,7 @@ echo <<<Headerfunction
 						</ul>
 					</li>
 				<li>
-					<a href="../admin/deployments.php" data-toggle="collapse" data-target="#ui_dr"><div class="pull-left"><i class="zmdi zmdi-smartphone-setup mr-20"></i><span class="right-nav-text">Deployment Center</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+					<a href="../admin/deployments.php" data-toggle="collapse" data-target="#ui_dr"><div class="pull-left"><i class="zmdi zmdi-smartphone-setup mr-20"></i><span class="right-nav-text">Deployment Center</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
 					<ul id="ui_dr" class="collapse collapse-level-1 two-col-list">						
 					</ul>
 				</li>

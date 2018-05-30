@@ -35,7 +35,7 @@ else if ($_GET['action']=="editmarketenvironment") {
 	$exec->updateTable('markets_environments','name',$name,$id);
 	$exec->updateTable('markets_environments','marketid',$environment,$id);
 	$exec->updateTable('markets_environments','environmentid',$market,$id);
-	header("Location: ../nodes/view_nodes.php");
+	header("Location: ../environments/view_market_environment.php");
 }
 
 else if ($_GET['action']=="editapps") {
@@ -60,9 +60,10 @@ else if ($_GET['action']=="editmarketparameters") {
 	$parametervalue=$_POST['parametervalue'];
 	$id=$_REQUEST['id'];
 	$market=$_REQUEST['market'];
+	$app=$_REQUEST['appid'];
 	$exec->updateTable('market_environment_parameters','parameterid',$parameterid,$id);
 	$exec->updateTable('market_environment_parameters','parametervalue',$parametervalue,$id);
-	header("Location: ../mkt_environment_parameters/market_parameters.php?market=$market");
+	header("Location: ../mkt_environment_parameters/market_parameters.php?market=$market&&app=$app");
 }
 
 else if ($_GET['action']=="deactivatemarket") {
